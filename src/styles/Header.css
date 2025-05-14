@@ -1,0 +1,24 @@
+.header{
+    position: sticky;
+    top: 0;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #bc6b25e8;
+    padding: 5px;
+    text-align: center;
+    color: #FEFAE0;
+    .logo{
+        width: 90px;
+    }
+}
+
+
+/*@media  (min-width : 500px){
+    .iconCarrito{
+        margin-left: auto !important;
+        margin-top: auto !important;
+    } 
+}*/
+
+
+

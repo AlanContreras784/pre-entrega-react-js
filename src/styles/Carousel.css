@@ -1,0 +1,40 @@
+.carousel-item{
+    height: 60vh;
+    
+  }
+  
+  .carousel-item img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 7rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color:black;
+    text-align: center;
+  }
+  
+  .btn-carrusel{
+    color: black;
+    font-weight: 600;
+  }
+  
+  .btn-carrusel:hover{
+    color: var(--bs-primario);
+  }
+  
+  .carousel-dark .carousel-indicators .active {
+    opacity: 1;
+    background-color: var(--bs-primario);
+  }
+  
+  
+  .carousel-dark .carousel-control-next{
+    color: var(--bs-primario);
+  }
