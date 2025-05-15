@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from "react-router-dom";
 
-function Header() {
+function Header({productosCarrito}) {
     return (
         <header className="header ">
             <Navbar variant="dark" expand="lg" className="fs-5 py-0">
@@ -23,7 +23,8 @@ function Header() {
                             <Link className="me-auto nav-link" to="/contacto">Contacto</Link>
                         </Nav>
                     </Navbar.Collapse>
-                    <Link className=" iconCarrito mx-0 px-4  nav-link" to="/carrito"><i class="fa-solid fa-cart-shopping"></i></Link>
+                    <Link className=" iconCarrito mx-0 px-4  nav-link" to="/carrito"><i class="fa-solid fa-cart-shopping"></i><span>{productosCarrito.length>0 ? productosCarrito.length : ""}</span></Link>
+                    
                 </Container>
             </Navbar>
         </header>

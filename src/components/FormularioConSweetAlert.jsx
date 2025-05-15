@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function FormularioConSweetAlert() {
   const [nombre, setNombre] = useState('');
@@ -48,7 +49,7 @@ function FormularioConSweetAlert() {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: 'auto' }}>
+    <form className='py-5' onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: 'auto' }}>
       <h2>Formulario de contacto</h2>
 
       <div style={{ marginBottom: '10px' }}>
@@ -84,7 +85,7 @@ function FormularioConSweetAlert() {
         ></textarea>
       </div>
 
-      <button type="submit" style={{ padding: '10px 20px' }}>
+      <button className='btn btn-outline-primary' type="submit" style={{ padding: '10px 20px' }}>
         Enviar
       </button>
     </form>

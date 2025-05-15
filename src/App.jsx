@@ -3,15 +3,13 @@ import { useState } from 'react'
 import './App.css'
 import Home from './layouts/Home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Nav from './components/Nav';
 import ProductosContainer from './components/ProductosContainer';
 import Carrito from './components/Carrito';
-import Nav2 from './components/Nav2';
-import Contacto from './components/Contacto';
 import About from './components/About';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import FormularioConSweetAlert from './components/FormularioConSweetAlert';
+import ProductoDetalle from './components/ProductoDetalle';
 
 function App() {
   const [productosCarrito, setProductosCarrito] = useState([])
@@ -47,13 +45,14 @@ function App() {
   return (
     <Router>
       <div>
-        <Header/>
+        <Header productosCarrito={productosCarrito}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About/>}/>
           <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
           <Route path="/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
           <Route path="/carrito" element={<Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito}/>}/>
+          <Route path="/productos/:id" element={<ProductoDetalle funcionCarrito={funcionCarrito} />} />
         </Routes>
         <Footer/>
       </div>

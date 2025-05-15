@@ -8,7 +8,7 @@ function CarritoCard({producto, funcionDisparadora}){
     }
 
     return(
-        <div className="carrito-card " >
+        <div key={producto.id} className="carrito-card " >
             <h4 className="carrito-titulo fs-5">{producto.title}</h4>
             <img className="carrito-image" src={producto.image}></img>
             <span className="m-1">{producto.cantidad}</span>

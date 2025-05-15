@@ -12,9 +12,9 @@ function ProductosContainer({functionCarrito}){
             .then((respuesta) =>
                 respuesta.json()
             )
-            .then((datos) => {
-                console.log(datos)
-                setProductos(datos)
+            .then((data) => {
+                console.log(data)
+                setProductos(data)
                 setCargando(false);
             })
             .catch((error) => {
@@ -37,6 +37,7 @@ function ProductosContainer({functionCarrito}){
             <div className="productos-conteiner">
                 {productos.map((producto) => (
                     <Card
+                        key={producto.id}
                         producto={producto}
                         funcionCarrito={functionEnProductos}
                     />
