@@ -47,7 +47,7 @@ function App() {
       <div>
         <Header productosCarrito={productosCarrito}/>
         <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="pre-entrega-TT-React-js/" element={<Home/>} />
           <Route path="/about" element={<About/>}/>
           <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
           <Route path="/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
