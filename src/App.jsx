@@ -43,20 +43,24 @@ function App() {
 
   
   return (
-    <Router>
+    
       <div>
-        <Header productosCarrito={productosCarrito}/>
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/about" element={<About/>}/>
-          <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
-          <Route path="/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
-          <Route path="/carrito" element={<Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito}/>}/>
-          <Route path="/productos/:id" element={<ProductoDetalle funcionCarrito={funcionCarrito} />} />
-        </Routes>
-        <Footer/>
+        <Router>
+          <Header productosCarrito={productosCarrito}/>
+          <Routes>
+            
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>}/>
+            <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
+            <Route path="/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
+            <Route path="/carrito" element={<Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito}/>}/>
+            <Route path="/productos/:id" element={<ProductoDetalle funcionCarrito={funcionCarrito} />} />
+            
+          </Routes>
+          <Footer/>
+        </Router>
       </div>
-    </Router>
+    
   )
 }
 
