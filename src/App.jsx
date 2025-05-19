@@ -50,11 +50,12 @@ function App() {
           <Routes>
             
             <Route path="/pre-entrega-react-js/" element={<Home/>} />
-            <Route path="/pre-entrega-react-js/about" element={<About/>}/>
-            <Route path="/pre-entrega-react-js/contacto" element={<FormularioConSweetAlert/>}/>
-            <Route path="/pre-entrega-react-js/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
-            <Route path="/pre-entrega-react-js/carrito" element={<Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito}/>}/>
-            <Route path="/pre-entrega-react-js/productos/:id" element={<ProductoDetalle funcionCarrito={funcionCarrito} />} />
+            <Route path="/" element={<Home/>} />
+            <Route path="/about" element={<About/>}/>
+            <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
+            <Route path="/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
+            <Route path="/carrito" element={<Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito}/>}/>
+            <Route path="/productos/:id" element={<ProductoDetalle funcionCarrito={funcionCarrito} />} />
             
           </Routes>
           <Footer/>
