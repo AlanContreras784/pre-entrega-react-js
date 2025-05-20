@@ -21,6 +21,8 @@ function Header({productosCarrito}) {
                             <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/productos">Productos</Link></Nav.Link>
                             <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/contacto">Contacto</Link></Nav.Link>
                             <Nav.Link href='#' className='me-auto'><Link className=" iconCarrito mx-0 px-4 me-auto  nav-link" to="/carrito"><i class="fa-solid fa-cart-shopping"></i><small>{productosCarrito.length>0 ? productosCarrito.length : ""}</small></Link></Nav.Link>
+                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/admin">Admin</Link></Nav.Link>
+                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/login">Login</Link></Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
