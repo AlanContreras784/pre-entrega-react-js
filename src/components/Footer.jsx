@@ -1,7 +1,7 @@
 import "../styles/Footer.css";
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown'
-import logoFooter from '../assets/img/logo_cero_huella.png'
+import logoFooter from '../assets/img/cerohuellaredondoconryv_pequeña.png'
 import { Container } from "react-bootstrap";
 
 function Footer() {  

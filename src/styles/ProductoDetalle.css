@@ -11,6 +11,7 @@
 }
 
 .detalle-imagen {
+    display: block;
     width: 300px;
     height: auto;
     border-radius: 10px;
@@ -35,4 +36,16 @@
 .detalle-contador span {
     font-size: 18px;
     color: black;
+}
+
+@media (max-width:750px) {
+    .detalle-container{
+        display: block;
+        max-width: 350px;
+    }
+    .detalle-imagen {
+    width: 250px;
+    height: auto;
+    padding-bottom: 20px;
+}
 }

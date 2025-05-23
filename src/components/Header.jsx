@@ -16,11 +16,11 @@ function Header({productosCarrito}) {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" className="ms-auto"/>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link href='#' className='me-auto '><Link className="me-auto nav-link" to="/">Home</Link></Nav.Link>
+                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/">Home</Link></Nav.Link>
                             <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/about">Nosotros</Link></Nav.Link>
                             <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/productos">Productos</Link></Nav.Link>
                             <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/contacto">Contacto</Link></Nav.Link>
-                            <Nav.Link href='#' className='me-auto'><Link className=" iconCarrito mx-0 px-4 me-auto  nav-link" to="/carrito"><i class="fa-solid fa-cart-shopping"></i><small>{productosCarrito.length>0 ? productosCarrito.length : ""}</small></Link></Nav.Link>
+                            <Nav.Link href='#' className='me-auto'><Link className="mx-0 px-2 me-auto  nav-link" to="/carrito"><i class="fa-solid fa-cart-shopping"></i><small className='color-cantidad px-1'>{productosCarrito.length>0 ? productosCarrito.length : ""}</small></Link></Nav.Link>
                             <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/admin">Admin</Link></Nav.Link>
                             <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/login">Login</Link></Nav.Link>
                         </Nav>

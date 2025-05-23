@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "../styles/ProductoDetalle.css";
 import { dispararSweetAlertBasico } from "../assets/SweetAlert";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -52,7 +52,7 @@ function ProductoDetalle({ funcionCarrito }) {
 
   return (
     <div className="detalle-container">
-      <img className="detalle-imagen" src={producto.image} alt={producto.title} />
+        <img className="detalle-imagen mx-auto" src={producto.image} alt={producto.title} />
       <div className="detalle-info">
         <h2>{producto.title}</h2>
         <small>{producto.description}</small>
@@ -62,7 +62,8 @@ function ProductoDetalle({ funcionCarrito }) {
             <span>{cantidad}</span>
             <button className="ms-3 btn btn-light" onClick={sumarContador}>+</button>
         </div>
-        <button className="me-3 btn btn-light " onClick={agregarAlCarrito}>Agregar al carrito</button>
+        <button className="mx-auto btn btn-outline-secondary " onClick={agregarAlCarrito}>Agregar al carrito</button>
+        <Link className="mx-auto" to={"/productos/"}> <button className="mt-3  btn btn-outline-warning ">Volver a Productos</button> </Link>
       </div>
     </div>
   );

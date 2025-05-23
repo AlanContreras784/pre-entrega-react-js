@@ -13,20 +13,36 @@
     }
 }
 
+.color-cantidad{
+    color: white;
+    font-size: medium;
+}
+
+.navbar-nav {
+    --bs-nav-link-padding-x: 0;
+    --bs-nav-link-padding-y: 0.3rem;
+} 
+
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: var(--bs-navbar-nav-link-padding-x); 
+        padding-left: 0px; 
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .nav-link {
-             transition: step-start;
+            transition: none;
     }
 }
 .nav-link:hover{
-  color: var(--bs-nav-link-hover-color);
-  text-decoration: underline;
-  text-decoration-color: var(--bs-nav-link-color);
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    color: var(--bs-nav-link-hover-color);
+    text-decoration: underline;
+    text-decoration-color: var(--bs-nav-link-color);
 }
 .nav-link:focus-visible {
-  outline: 5;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    outline: 5;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
 
