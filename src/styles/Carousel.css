@@ -1,5 +1,5 @@
 .carousel-item{
-    height: 60vh;
+    height: 70vh;
     
   }
   
@@ -18,6 +18,7 @@
     padding-bottom: 1.25rem;
     color:black;
     text-align: center;
+    font-weight: 600;
   }
   
   .btn-carrusel{
@@ -38,3 +39,15 @@
   .carousel-dark .carousel-control-next{
     color: var(--bs-primario);
   }
+
+  .divBlur {
+  backdrop-filter: blur(15px);
+  width: 75%;
+}
+
+@media screen and (min-width: 768px) {
+ .divBlur{
+  width: 65%;
+ } 
+  
+}

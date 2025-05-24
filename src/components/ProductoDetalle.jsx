@@ -62,8 +62,9 @@ function ProductoDetalle({ funcionCarrito }) {
             <span>{cantidad}</span>
             <button className="ms-3 btn btn-light" onClick={sumarContador}>+</button>
         </div>
-        <button className="mx-auto btn btn-outline-secondary " onClick={agregarAlCarrito}>Agregar al carrito</button>
-        <Link className="mx-auto" to={"/productos/"}> <button className="mt-3  btn btn-outline-warning ">Volver a Productos</button> </Link>
+        <button className="mx-auto btn btn-outline-primary " onClick={agregarAlCarrito}>Agregar al carrito</button>
+        <Link className="mx-auto" to={"/productos/"}> <button className=" btn btn-outline-success ">Volver a Productos</button> </Link>
+        <Link to={"/carrito"}><button  className="btn btn-outline-warning">Ir a Carrito</button></Link>      
       </div>
     </div>
   );

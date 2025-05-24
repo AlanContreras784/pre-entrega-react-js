@@ -12,6 +12,7 @@ import FormularioConSweetAlert from './components/FormularioConSweetAlert';
 import ProductoDetalle from './components/ProductoDetalle';
 import Admin from './components/Admin';
 import Login from './components/Login';
+import { dispararSweetAlertBasico } from "./assets/SweetAlert";
 
 function App() {
   const [productosCarrito, setProductosCarrito] = useState([]);
@@ -41,6 +42,7 @@ function App() {
 
   function borrarProductoCarrito(id){
     console.log(id)
+    dispararSweetAlertBasico("Producto Eliminado", "El producto fue borrado con éxito del carrito", "error", "Cerrar");
     const nuevoCarrito = productosCarrito.filter((p) => p.id !== id);
     setProductosCarrito(nuevoCarrito);
   }
@@ -66,7 +68,7 @@ function App() {
             <Route path="/about" element={<About/>}/>
             <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
             <Route path="/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
-            <Route path="/carrito" element={usuarioLogueado?  <Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito}/> : <Navigate to={"/login"} replace/>}/>
+            <Route path="/carrito" element={usuarioLogueado?  <Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito} vaciarCarrito={()=> setProductosCarrito([])}/> : <Navigate to={"/login"} replace/>}/>
             <Route path="/productos/:id" element={<ProductoDetalle funcionCarrito={funcionCarrito} />} />
             <Route path="/admin" element={adminLogueado? <Admin/> : <Navigate to= {"/login"} replace/>}/>
             

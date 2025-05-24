@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Swal from 'sweetalert2';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/Contacto.css'
 
 function FormularioConSweetAlert() {
   const [nombre, setNombre] = useState('');
@@ -49,39 +50,37 @@ function FormularioConSweetAlert() {
   };
 
   return (
-    <form className='py-5' onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: 'auto' }}>
-      <h2>Formulario de contacto</h2>
+    <form className='py-5 formulario' onSubmit={handleSubmit} >
+      <h1>Escribenos...!</h1>
+      <h3 className='lead'>Ponte en contacto con nosotros!</h3>
 
-      <div style={{ marginBottom: '10px' }}>
+      <div>
         <label>Nombre:</label>
         <input
           type="text"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
           placeholder="Tu nombre"
-          style={{ width: '100%', padding: '8px' }}
         />
       </div>
 
-      <div style={{ marginBottom: '10px' }}>
+      <div>
         <label>Email:</label>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Tu email"
-          style={{ width: '100%', padding: '8px' }}
         />
       </div>
 
-      <div style={{ marginBottom: '10px' }}>
+      <div>
         <label>Mensaje:</label>
         <textarea
           value={mensaje}
           onChange={(e) => setMensaje(e.target.value)}
           placeholder="Escribí tu mensaje..."
           rows="4"
-          style={{ width: '100%', padding: '8px' }}
         ></textarea>
       </div>
 

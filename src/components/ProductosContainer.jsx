@@ -34,14 +34,20 @@ function ProductosContainer({functionCarrito}){
         return <p>{error}</p>;
     }else{
         return(
-            <div className="productos-conteiner">
-                {productos.map((producto) => (
+            <div>
+                <div className="">
+                    <h1 className="text-center py-3">Nuestros Productos</h1>
+                </div>
+                <div className="productos-conteiner">
+                    {productos.map((producto) => (
                     <Card
                         key={producto.id}
                         producto={producto}
                         funcionCarrito={functionEnProductos}
                     />
                 ))}
+                </div>
+                
             </div>
         )
     }
