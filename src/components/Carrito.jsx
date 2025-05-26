@@ -2,22 +2,21 @@ import "../styles/Carrito.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CarritoCard from "./CarritoCard.jsx";
 import { Link, Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { CarritoContext } from "../contexts/CarritoContext.jsx";
 
-export default function Carrito({productosCarrito, funcionBorrar, vaciarCarrito, usuarioLogueado}) {
-    console.log("Productos: " + productosCarrito)
+export default function Carrito({usuarioLogueado}) {
+    
+    const {productosCarrito, vaciarCarrito, borrarProductosCarrito}=useContext(CarritoContext);
 
     const total = productosCarrito.reduce(
         (subTotal, producto) => subTotal + producto.price * producto.cantidad, 0
-    )
+    );
 
     function funcionDisparadora(id){
-        funcionBorrar(id)
-    }
+        borrarProductosCarrito(id);
+    };
 
-    console.log("Total: " + total)
-
-
-    
     if(!usuarioLogueado){
         return(
             <Navigate to='/login' replace />

@@ -6,8 +6,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from "react-router-dom";
+import { useContext } from 'react';
+import { CarritoContext } from '../contexts/CarritoContext';
 
-function Header({productosCarrito}) {
+function Header() {
+    const {productosCarrito} = useContext(CarritoContext)
     return (
         <header className="header ">
             <Navbar collapseOnSelect expand="lg" variant="dark"  className="fs-5 py-0">

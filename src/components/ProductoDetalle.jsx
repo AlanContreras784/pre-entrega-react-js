@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import React,{ useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "../styles/ProductoDetalle.css";
 import { dispararSweetAlertBasico } from "../assets/SweetAlert";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { CarritoContext } from "../contexts/CarritoContext";
 
-function ProductoDetalle({ funcionCarrito }) {
+function ProductoDetalle({}) {
+  const {agregarAlCarrito} = useContext(CarritoContext);
+
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
@@ -32,10 +35,10 @@ function ProductoDetalle({ funcionCarrito }) {
       });
   }, [id]);}
 
-  function agregarAlCarrito() {
+  function funcionCarrito() {
     if (cantidad < 1) return;
     dispararSweetAlertBasico("Producto Agregado", "El producto fue agregado al carrito con éxito", "success", "Cerrar");
-    funcionCarrito({ ...producto, cantidad });
+    agregarAlCarrito({ ...producto, cantidad });
   }
 
   function sumarContador() {
@@ -62,7 +65,7 @@ function ProductoDetalle({ funcionCarrito }) {
             <span>{cantidad}</span>
             <button className="ms-3 btn btn-light" onClick={sumarContador}>+</button>
         </div>
-        <button className="mx-auto btn btn-outline-primary " onClick={agregarAlCarrito}>Agregar al carrito</button>
+        <button className="mx-auto btn btn-outline-primary " onClick={funcionCarrito}>Agregar al carrito</button>
         <Link className="mx-auto" to={"/productos/"}> <button className=" btn btn-outline-success ">Volver a Productos</button> </Link>
         <Link to={"/carrito"}><button  className="btn btn-outline-warning">Ir a Carrito</button></Link>      
       </div>

@@ -12,40 +12,12 @@ import FormularioConSweetAlert from './components/FormularioConSweetAlert';
 import ProductoDetalle from './components/ProductoDetalle';
 import Admin from './components/Admin';
 import Login from './components/Login';
-import { dispararSweetAlertBasico } from "./assets/SweetAlert";
+
 
 function App() {
-  const [productosCarrito, setProductosCarrito] = useState([]);
+
   const [usuarioLogueado, setUsuarioLogueado] = useState(false);
   const [adminLogueado, setAdminLogueado] = useState(false);
-
-  function funcionCarrito(producto){
-    const existe = productosCarrito.find(p => p.id === producto.id);
-    console.log(existe)
-    if (existe) {
-        const carritoActualizado = productosCarrito.map((p) => {
-            if (p.id === producto.id){
-                const productoActualizado = {...p, cantidad: p.cantidad + producto.cantidad}
-                return productoActualizado
-            }else{
-                return p
-            }
-        })
-        setProductosCarrito(carritoActualizado)
-    }else{
-        // Si no existe, lo agregamos con su cantidad
-        const nuevoCarrito = [...productosCarrito, producto];
-        setProductosCarrito(nuevoCarrito)
-    }
-
-  }
-
-  function borrarProductoCarrito(id){
-    console.log(id)
-    dispararSweetAlertBasico("Producto Eliminado", "El producto fue borrado con éxito del carrito", "error", "Cerrar");
-    const nuevoCarrito = productosCarrito.filter((p) => p.id !== id);
-    setProductosCarrito(nuevoCarrito);
-  }
 
   function ManejarAdmin(){
     setAdminLogueado(!adminLogueado)
@@ -59,7 +31,7 @@ function App() {
     
       <div>
         <Router>
-          <Header productosCarrito={productosCarrito}/>
+          <Header/>
           <Routes>
             
             <Route path="/pre-entrega-react-js/" element={<Home/>} />
@@ -67,9 +39,9 @@ function App() {
             <Route path="/login" element={<Login  user={usuarioLogueado} admi={adminLogueado} setLogueadoAdmi={ManejarAdmin} setLogueadoUser={ManejarUser}/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
-            <Route path="/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
-            <Route path="/carrito" element={<Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito} vaciarCarrito={()=> setProductosCarrito([])} usuarioLogueado={usuarioLogueado}/> }/>
-            <Route path="/productos/:id" element={<ProductoDetalle funcionCarrito={funcionCarrito} />} />
+            <Route path="/productos" element={<ProductosContainer/>} />
+            <Route path="/carrito" element={<Carrito usuarioLogueado={usuarioLogueado}/> }/>
+            <Route path="/productos/:id" element={<ProductoDetalle/>} />
             <Route path="/admin" element={adminLogueado? <Admin/> : <Navigate to= {"/login"} replace/>}/>
             
           </Routes>
