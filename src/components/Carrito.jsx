@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CarritoCard from "./CarritoCard.jsx";
 import { Link, Navigate } from "react-router-dom";
 
-export default function Carrito({productosCarrito, funcionBorrar, vaciarCarrito}) {
+export default function Carrito({productosCarrito, funcionBorrar, vaciarCarrito, usuarioLogueado}) {
     console.log("Productos: " + productosCarrito)
 
     const total = productosCarrito.reduce(
@@ -15,6 +15,15 @@ export default function Carrito({productosCarrito, funcionBorrar, vaciarCarrito}
     }
 
     console.log("Total: " + total)
+
+
+    
+    if(!usuarioLogueado){
+        return(
+            <Navigate to='/login' replace />
+        )
+        
+    }
 
     return(
         <div className="carrito-conteiner">

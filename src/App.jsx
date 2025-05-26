@@ -68,7 +68,7 @@ function App() {
             <Route path="/about" element={<About/>}/>
             <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
             <Route path="/productos" element={<ProductosContainer functionCarrito={funcionCarrito}/>} />
-            <Route path="/carrito" element={usuarioLogueado?  <Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito} vaciarCarrito={()=> setProductosCarrito([])}/> : <Navigate to={"/login"} replace/>}/>
+            <Route path="/carrito" element={<Carrito productosCarrito={productosCarrito} funcionBorrar={borrarProductoCarrito} vaciarCarrito={()=> setProductosCarrito([])} usuarioLogueado={usuarioLogueado}/> }/>
             <Route path="/productos/:id" element={<ProductoDetalle funcionCarrito={funcionCarrito} />} />
             <Route path="/admin" element={adminLogueado? <Admin/> : <Navigate to= {"/login"} replace/>}/>
             
