@@ -1,7 +1,18 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaTools } from 'react-icons/fa';
+import { useAuthContext } from '../contexts/AuthContext';
+import { Navigate } from 'react-router-dom';
 
 export default function Admi() {
+  const {user} =useAuthContext();
+
+  if(!user){
+        return(
+            <Navigate to='/login' replace />
+        )
+        
+    }
+ 
   return (
     <div className="container text-center mt-5 mb-5">
       <FaTools size={64} className="text-warning mb-4" />

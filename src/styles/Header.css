@@ -3,7 +3,7 @@
     top: 0;
     justify-content: space-around;
     align-items: center;
-    background-color: #bc6b25e8;
+    background-color: #727272;
     padding: 5px;
     text-align: center;
     color: #FEFAE0;
@@ -13,20 +13,30 @@
     }
 }
 
+.navbar-nav .nav-link.active {
+    color: var(--bs-nav-link-color);
+}
+
+.border-boton{
+    border: 1px solid #FEFAE0;
+}
+
+/*background-color: #bc6b25e8;*/
+
 .color-cantidad{
     color: white;
     font-size: medium;
 }
 
 .navbar-nav {
-    --bs-nav-link-padding-x: 0;
-    --bs-nav-link-padding-y: 0.3rem;
+    --bs-nav-link-padding-x: 0rem;
+    --bs-nav-link-padding-y: 0.5rem;
 } 
 
 @media (min-width: 992px) {
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: var(--bs-navbar-nav-link-padding-x); 
-        padding-left: 0px; 
+        padding-left: 0.5rem; 
     }
 }
 
@@ -35,8 +45,8 @@
             transition: none;
     }
 }
-.nav-link:hover{
-    color: var(--bs-nav-link-hover-color);
+.navbar-nav .nav-link.active:hover{
+    color: white;
     text-decoration: underline;
     text-decoration-color: var(--bs-nav-link-color);
 }

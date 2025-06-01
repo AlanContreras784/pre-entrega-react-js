@@ -7,6 +7,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    filter: brightness(0.5);
   }
   
   .carousel-caption {
@@ -16,13 +17,12 @@
     left: 15%;
     padding-top: 1.25rem;
     padding-bottom: 1.25rem;
-    color:black;
+    color:white;
     text-align: center;
     font-weight: 600;
   }
   
   .btn-carrusel{
-    color: black;
     font-weight: 600;
   }
   
@@ -35,9 +35,8 @@
     background-color: var(--bs-primario);
   }
   
-  
-  .carousel-dark .carousel-control-next{
-    color: var(--bs-primario);
+  .carousel-indicators [data-bs-target]{
+    background-color: var(--bs-carousel-indicator-active-bg);
   }
 
   .divBlur {

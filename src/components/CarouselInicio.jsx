@@ -10,7 +10,7 @@ function CarouselInicio() {
     <Carousel>
       <Carousel.Item>
         <img src={imagen3}/>
-        <Carousel.Caption className='divBlur'>
+        <Carousel.Caption className=''>
           <h3>Tecnología al alcance de tu hogar</h3>
           <p>
             Descubre una experiencia de compra simple y segura, con productos innovadores que se adaptan a tu estilo de vida digital.
@@ -19,21 +19,21 @@ function CarouselInicio() {
       </Carousel.Item>
       <Carousel.Item>
         <img  src={imagen2}/>
-        <Carousel.Caption className='divBlur'>
+        <Carousel.Caption className=''>
           <h3>Compra rápida desde tu móvil</h3>
           <p>Accede a nuestras ofertas exclusivas y compra con un solo clic desde cualquier lugar, 24/7.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img src={imagen1}/>
-        <Carousel.Caption className='divBlur'>
+        <Carousel.Caption className=''>
           <h3> Fotografía de producto profesional</h3>
           <p>Tu escaparate digital merece lo mejor. Inspírate en cómo mostrar tus productos de forma atractiva y profesional.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img src={imagen4}/>
-        <Carousel.Caption className='divBlur'>
+        <Carousel.Caption className=''>
           <h3>Moda inteligente, estilo auténtico</h3>
           <p>
             Encuentra ropa y accesorios únicos mientras disfrutas de una compra cómoda y personalizada desde donde estés.

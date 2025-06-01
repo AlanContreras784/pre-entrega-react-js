@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react'
 import './App.css'
 import Home from './layouts/Home'
@@ -12,20 +11,11 @@ import FormularioConSweetAlert from './components/FormularioConSweetAlert';
 import ProductoDetalle from './components/ProductoDetalle';
 import Admin from './components/Admin';
 import Login from './components/Login';
+import Registrarse from './components/Registrarse';
 
 
 function App() {
 
-  const [usuarioLogueado, setUsuarioLogueado] = useState(false);
-  const [adminLogueado, setAdminLogueado] = useState(false);
-
-  function ManejarAdmin(){
-    setAdminLogueado(!adminLogueado)
-  }
-
-  function ManejarUser(){
-    setUsuarioLogueado(!usuarioLogueado)
-  }
   
   return (
     
@@ -36,13 +26,14 @@ function App() {
             
             <Route path="/pre-entrega-react-js/" element={<Home/>} />
             <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login  user={usuarioLogueado} admi={adminLogueado} setLogueadoAdmi={ManejarAdmin} setLogueadoUser={ManejarUser}/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path='/registrarse' element={<Registrarse/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="/contacto" element={<FormularioConSweetAlert/>}/>
             <Route path="/productos" element={<ProductosContainer/>} />
-            <Route path="/carrito" element={<Carrito usuarioLogueado={usuarioLogueado}/> }/>
+            <Route path="/carrito" element={<Carrito/> }/>
             <Route path="/productos/:id" element={<ProductoDetalle/>} />
-            <Route path="/admin" element={adminLogueado? <Admin/> : <Navigate to= {"/login"} replace/>}/>
+            <Route path="/admin" element={<Admin/>}/>
             
           </Routes>
           <Footer/>

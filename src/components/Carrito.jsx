@@ -4,9 +4,10 @@ import CarritoCard from "./CarritoCard.jsx";
 import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { CarritoContext } from "../contexts/CarritoContext.jsx";
+import { useAuthContext } from "../contexts/AuthContext.jsx";
 
-export default function Carrito({usuarioLogueado}) {
-    
+export default function Carrito() {
+    const {user}=useAuthContext();
     const {productosCarrito, vaciarCarrito, borrarProductosCarrito}=useContext(CarritoContext);
 
     const total = productosCarrito.reduce(
@@ -17,7 +18,7 @@ export default function Carrito({usuarioLogueado}) {
         borrarProductosCarrito(id);
     };
 
-    if(!usuarioLogueado){
+    if(!user){
         return(
             <Navigate to='/login' replace />
         )

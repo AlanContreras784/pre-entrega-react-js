@@ -1,33 +1,31 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavLink } from "react-bootstrap";
 import Logo from "../assets/img/Logo Cero Huella Horiz.png"
 import "../styles/Header.css"
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import {Container, Navbar, Nav} from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { useContext } from 'react';
 import { CarritoContext } from '../contexts/CarritoContext';
+import { useAuthContext } from "../contexts/AuthContext";
 
 function Header() {
+    const {user, login, logout}= useAuthContext()
     const {productosCarrito} = useContext(CarritoContext)
     return (
         <header className="header ">
             <Navbar collapseOnSelect expand="lg" variant="dark"  className="fs-5 py-0">
                 <Container fluid>
-                    <Navbar.Brand href="#home"><img className="logo  me-auto" src={Logo} alt="" /></Navbar.Brand>
+                    <Navbar.Brand as={Link} to={'/'} href="#home"><img className="logo  me-auto" src={Logo} alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" className="ms-auto"/>
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="ms-auto">
-                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/">Home</Link></Nav.Link>
-                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/about">Nosotros</Link></Nav.Link>
-                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/productos">Productos</Link></Nav.Link>
-                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/contacto">Contacto</Link></Nav.Link>
-                            <Nav.Link href='#' className='me-auto'><Link className="mx-0 px-2 me-auto  nav-link" to="/carrito"><i class="fa-solid fa-cart-shopping"></i><small className='color-cantidad px-1'>{productosCarrito.length>0 ? productosCarrito.length : ""}</small></Link></Nav.Link>
-                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/admin">Admin</Link></Nav.Link>
-                            <Nav.Link href='#' className='me-auto'><Link className="me-auto nav-link" to="/login">Login</Link></Nav.Link>
-                        </Nav>
-                    </Navbar.Collapse>
+                        <Navbar.Collapse id="responsive-navbar-nav">
+                            <Nav className="ms-auto">
+                                <Nav.Link href="#" as={Link} to={'/'} className='me-auto nav-link'>Home</Nav.Link>
+                                <Nav.Link href="#" as={Link} to={'/productos'} className='me-auto nav-link'>Productos</Nav.Link>
+                                <Nav.Link href="#" as={Link} to={'/contacto'} className='me-auto nav-link'>Contacto</Nav.Link>
+                                <Nav.Link href="#" as={Link} to={'/carrito'} className='me-auto nav-link'><i class="fa-solid fa-cart-shopping"></i><small className='color-cantidad px-1'>{productosCarrito.length>0 ? productosCarrito.length : ""}</small></Nav.Link>
+                                <Nav.Link href="#" as={Link} to={'/about'} className='me-auto nav-link'>Nosotros</Nav.Link>
+                                <Nav.Link href="#" as={Link} to={'/admin'} className='me-auto nav-link'>Admin</Nav.Link>
+                                <Nav.Link href="#" as={Link} to={'/login'} className='me-auto nav-link'><button className="btn btn-secondary border-boton" onClick={!user? login: logout}>{!user? 'Login' : 'Logout'}</button></Nav.Link>
+                            </Nav>
+                        </Navbar.Collapse>
                 </Container>
             </Navbar>
         </header>
