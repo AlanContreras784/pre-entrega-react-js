@@ -1,6 +1,6 @@
 import "../styles/Productos.css"
 import { Link, Navigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function Card({producto}){
     

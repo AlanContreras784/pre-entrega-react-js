@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 //import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,20 +23,51 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 
 export function crearUsuario(email, password){
-    createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-    // Signed up 
-        console.log("Credenciales", userCredential)
-        const user = userCredential.user;
-        console.log(user)
-        // ...
-    })
-    .catch((error) => {
-        console.log(error.code, error.message)
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        
-        // ..
-    });
+    return(
+        new Promise((res,rej)=>{
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+            // Signed up 
+                console.log("Credenciales", userCredential)
+                const user = userCredential.user;
+                console.log(user)
+                res(user);
+                // ...
+            })
+            .catch((error) => {
+                console.log(error.code, error.message)
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                rej(error);
+                // ..
+            });
+        })
+    )
+    
+}
+
+export function loginEmailPass(email, password){
+
+    return(
+        new Promise((res,rej)=>{
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                console.log('Credenciales', userCredential);
+                const user = userCredential.user;
+                console.log(user);
+                res(user);
+                // ...
+            })
+            .catch((error) => {
+                console.log(error.code, error.message)
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                rej(error);
+            });
+        }
+    )
+    )
+
 }
 

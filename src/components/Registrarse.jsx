@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
 import { crearUsuario } from "../Auth/firebase";
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../contexts/AuthContext';
@@ -14,9 +13,13 @@ function Registrarse() {
 
     function registrarUsuario(e){
         e.preventDefault();
-        crearUsuario(usuario, password);
-        login(usuario);
-        navigate('/login');
+        crearUsuario(usuario, password).then((user)=>{
+            login(usuario);
+            navigate('/login');
+        }).catch((error)=>{
+            alert('error')
+        })
+        
     }
     return (
         <form onSubmit={registrarUsuario}>

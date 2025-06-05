@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaTools } from 'react-icons/fa';
 import { useAuthContext } from '../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
