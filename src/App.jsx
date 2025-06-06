@@ -12,6 +12,7 @@ import ProductoDetalle from './components/ProductoDetalle';
 import Admin from './components/Admin';
 import Login from './components/Login';
 import Registrarse from './components/Registrarse';
+import FormularioProducto from './components/FormularioProducto';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path="/carrito" element={<Carrito/> }/>
             <Route path="/productos/:id" element={<ProductoDetalle/>} />
             <Route path="/admin" element={<Admin/>}/>
+            <Route path="/admin/agregarProductos" element={<FormularioProducto/>}/>
             
           </Routes>
           <Footer/>

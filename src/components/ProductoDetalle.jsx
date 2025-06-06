@@ -17,10 +17,10 @@ function ProductoDetalle({}) {
   console.log(id)
 
   {useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://68100ddf27f2fdac24102328.mockapi.io/productos')
       .then((respuesta) => respuesta.json())
       .then((data) => {
-        const productoEncontrado = data.find((d) =>d.id == id);
+        const productoEncontrado = data.find((d) =>d.id === id);
         if (productoEncontrado) {
           setProducto(productoEncontrado);
         } else {
@@ -55,9 +55,9 @@ function ProductoDetalle({}) {
 
   return (
     <div className="detalle-container">
-        <img className="detalle-imagen mx-auto" src={producto.image} alt={producto.title} />
+        <img className="detalle-imagen mx-auto" src={producto.imagen} alt={producto.name} />
       <div className="detalle-info">
-        <h2>{producto.title}</h2>
+        <h2>{producto.name}</h2>
         <small>{producto.description}</small>
         <p>{producto.price} $</p>
         <div>

@@ -10,17 +10,7 @@ function Login() {
   const { login, logout, user } = useAuthContext();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Simulación de autenticación
-    if (usuario === 'admin' && password === '1234') {
-      login(usuario);
-      navigate('/');
-    } else {
-      alert('Credenciales incorrectas');
-    }
-  };
-
+  
   const handleSubmit2 =(e)=>{
         logout()
   }
@@ -47,33 +37,10 @@ function Login() {
 
 
   return (
-    <div>
-    <form onSubmit={handleSubmit}>
-      <h2>Iniciar sesión</h2>
-      <div>
-        <label>Email:</label>
-        <input
-          type="text"
-          value={usuario}
-          onChange={(e) => setUsuario(e.target.value)}
-        />
-      </div>
-      <div>
-        <label>Contraseña:</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button onClick={iniciarLoginEmailPass} type="submit">Iniciar Sesión</button>
-      <Link to={'/registrarse'}><button>Registrarse</button></Link>
-      
-    </form>
 
     <Container className="mt-5" style={{ maxWidth: 400 }}>
       <h2>Iniciar sesión</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form >
         <Form.Group className="mb-3 text-start">
           <Form.Label >Email:</Form.Label>
           <Form.Control value={usuario} type="text" onChange={(e) => setUsuario(e.target.value)} />
@@ -82,11 +49,10 @@ function Login() {
           <Form.Label>Contraseña:</Form.Label>
           <Form.Control value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
         </Form.Group>
-        <Button className='me-4' variant="outline-primary" onClick={iniciarLoginEmailPass} type='submit'>Entrar</Button>
-        <Link to={'/registrarse'}><Button variant='primary'>Registrarse</Button></Link>
+        <Button className='me-4 mb-5' variant="outline-primary" onClick={iniciarLoginEmailPass} type='submit'>Entrar</Button>
+        <Link to={'/registrarse'}><Button className='mb-5' variant='primary'>Registrarse</Button></Link>
       </Form>
     </Container>
-    </div>
   );
 }
 export default Login;
