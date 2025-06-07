@@ -5,11 +5,15 @@ import Swal from "sweetalert2";
 const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  const [admin, setAdmin] = useState(false);
 
 
   const login = (username) => {
     // Simulando la creación de un token (en una app real, esto sería generado por un servidor)
     const token = `fake-token-${username}`;
+    if(username=="admin@gmail.com"){
+        setAdmin(true);
+    }
     localStorage.setItem('authToken', token);
     setUser(username);
   };
@@ -32,16 +36,13 @@ export function AuthProvider({ children }) {
             });
             localStorage.removeItem('authToken');
             setUser(null);
-        } else if(result.dismiss == Swal.DismissReason.cancel){
-                    <Navigate to='/' replace/>
-            
-            
+            setAdmin(false)
         }
     });
 
   };
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, admin }}>
       {children}
     </AuthContext.Provider> );
 }

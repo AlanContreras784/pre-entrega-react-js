@@ -3,9 +3,9 @@ import { useAuthContext } from '../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 
 export default function Admi() {
-  const {user} =useAuthContext();
+  const {admin} =useAuthContext();
 
-  if(!user){
+  if(!admin){
         return(
             <Navigate to='/login' replace />
         )

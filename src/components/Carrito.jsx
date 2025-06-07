@@ -5,17 +5,18 @@ import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { CarritoContext } from "../contexts/CarritoContext.jsx";
 import { useAuthContext } from "../contexts/AuthContext.jsx";
+import Swal from "sweetalert2";
 
 export default function Carrito() {
     const {user}=useAuthContext();
-    const {productosCarrito, vaciarCarrito, borrarProductosCarrito}=useContext(CarritoContext);
+    const {productosCarrito, vaciarCarrito, borrarProductoCarrito}=useContext(CarritoContext);
 
     const total = productosCarrito.reduce(
         (subTotal, producto) => subTotal + producto.price * producto.cantidad, 0
     );
 
     function funcionDisparadora(id){
-        borrarProductosCarrito(id);
+        borrarProductoCarrito(id)
     };
 
     if(!user){
@@ -26,7 +27,7 @@ export default function Carrito() {
     }
 
     return(
-        <div className="carrito-conteiner">
+        <div key={productosCarrito.id} className="carrito-conteiner">
             {productosCarrito.length > 0 ? productosCarrito.map((producto) => (
                 <CarritoCard 
                     producto={producto}

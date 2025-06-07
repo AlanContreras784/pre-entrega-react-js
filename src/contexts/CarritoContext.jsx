@@ -1,5 +1,6 @@
 import React, { createContext, useState } from "react";
 import { dispararSweetAlertBasico } from "../assets/SweetAlert";
+import Swal from "sweetalert2";
 // Crear el contexto
 export const CarritoContext = createContext();
 // Proveedor del contexto
@@ -17,6 +18,7 @@ export function CarritoProvider({ children }) {
                     return p
                 }
             })
+            
             setProductosCarrito(carritoActualizado)
         }else{
             // Si no existe, lo agregamos con su cantidad
@@ -25,13 +27,49 @@ export function CarritoProvider({ children }) {
         }
     };
     const vaciarCarrito = () => {
-    setProductosCarrito([]);
+        dispararSweetAlertBasico("Carrito Vacio", "El carrito fue vaciado con éxito del carrito", "error", "Cerrar");
+        setProductosCarrito([]);
     };
     function borrarProductoCarrito(id){
+
+
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger"
+            },
+            buttonsStyling: false
+            });
+            swalWithBootstrapButtons.fire({
+            title: "Estas seguro ?",
+            text: "Quieres Elimar este producto del Carrito!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Si, Eliminalo!",
+            cancelButtonText: "No, cancelar!",
+            reverseButtons: true
+            }).then((result) => {
+            if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire({
+                    title: "Eliminado!",
+                    text: "Su producto ha sido eliminado del Carrito.",
+                    icon: "success",
+                });
+                const nuevoCarrito = productosCarrito.filter((p) => p.id !== id);
+                setProductosCarrito(nuevoCarrito);
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                title: "Cancelado",
+                text: "Tu producto no fue eliminado :)",
+                icon: "error"
+                });
+            }
+        });
         console.log(id)
-        dispararSweetAlertBasico("Producto Eliminado", "El producto fue borrado con éxito del carrito", "error", "Cerrar");
-        const nuevoCarrito = productosCarrito.filter((p) => p.id !== id);
-        setProductosCarrito(nuevoCarrito);
+       
+        
     }
 
     return (

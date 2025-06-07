@@ -6,7 +6,7 @@ import { dispararSweetAlertBasico } from '../assets/SweetAlert';
 
 function FormularioProducto({}) {
 
-   const {admin} = useAuthContext();
+    const {admin} = useAuthContext();
 
     const [producto, setProducto] = useState({
         name: '',
@@ -22,7 +22,6 @@ function FormularioProducto({}) {
         if (!producto.price || producto.price <= 0) {
         return("El precio debe ser mayor a 0.")
         }
-        console.log(producto.description.trim())
         if (!producto.description.trim() || producto.description.length < 10) {
         return("La descripción debe tener al menos 10 caracteres.")
         }
@@ -65,12 +64,12 @@ function FormularioProducto({}) {
         <div>
             <label>Nombre:</label>
             <input
-            type="text" name="title" value={producto.name} onChange={handleChange} required/>
+            type="text" name="name" value={producto.name} onChange={handleChange} required/>
         </div>
         <div>
             <label>URL de la Imagen</label>
             <input
-            type="text" name="image" value={producto.imagen} onChange={handleChange} required/>
+            type="text" name="imagen" value={producto.imagen} onChange={handleChange} required/>
         </div>
         <div>
             <label>Precio:</label>
