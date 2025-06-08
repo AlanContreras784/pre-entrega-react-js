@@ -1,22 +1,23 @@
-import React, { createContext, useState, useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { createContext, useState, useContext } from 'react';
 import Swal from "sweetalert2";
 // Crear el contexto de autenticación
 const AuthContext = createContext();
 export function AuthProvider({ children }) {
+  
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState(false);
-
 
   const login = (username) => {
     // Simulando la creación de un token (en una app real, esto sería generado por un servidor)
     const token = `fake-token-${username}`;
-    if(username=="admin@gmail.com"){
+    if(username=="admin@gmail.com"){ //contraseña : test12
         setAdmin(true);
     }
     localStorage.setItem('authToken', token);
     setUser(username);
   };
+
+  //Funcion para cerrar Sesion
   const logout = () => {
     Swal.fire({
         title: "¿Estás seguro?",

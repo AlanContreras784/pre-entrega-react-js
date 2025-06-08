@@ -1,12 +1,14 @@
-import React, { createContext, useState } from "react";
+import { createContext, useState } from "react";
 import { dispararSweetAlertBasico } from "../assets/SweetAlert";
 import Swal from "sweetalert2";
+
 // Crear el contexto
 export const CarritoContext = createContext();
 // Proveedor del contexto
 export function CarritoProvider({ children }) {
+
     const [productosCarrito, setProductosCarrito] = useState([]);
-    
+
     const agregarAlCarrito = (producto) => {
         const existe = productosCarrito.find(p => p.id === producto.id);
         if (existe) {
@@ -18,7 +20,6 @@ export function CarritoProvider({ children }) {
                     return p
                 }
             })
-            
             setProductosCarrito(carritoActualizado)
         }else{
             // Si no existe, lo agregamos con su cantidad
@@ -31,7 +32,6 @@ export function CarritoProvider({ children }) {
         setProductosCarrito([]);
     };
     function borrarProductoCarrito(id){
-
 
         const swalWithBootstrapButtons = Swal.mixin({
             customClass: {
@@ -68,8 +68,6 @@ export function CarritoProvider({ children }) {
             }
         });
         console.log(id)
-       
-        
     }
 
     return (

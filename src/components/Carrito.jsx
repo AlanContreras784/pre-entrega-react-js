@@ -5,7 +5,6 @@ import { Link, Navigate } from "react-router-dom";
 import { useContext } from "react";
 import { CarritoContext } from "../contexts/CarritoContext.jsx";
 import { useAuthContext } from "../contexts/AuthContext.jsx";
-import Swal from "sweetalert2";
 
 export default function Carrito() {
     const {user}=useAuthContext();

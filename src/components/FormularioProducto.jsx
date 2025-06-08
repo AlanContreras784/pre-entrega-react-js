@@ -3,6 +3,7 @@ import { agregarProducto } from '../assets/requests';
 import { useAuthContext } from '../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { dispararSweetAlertBasico } from '../assets/SweetAlert';
+import { Button, Container, FloatingLabel, Form } from 'react-bootstrap';
 
 function FormularioProducto({}) {
 
@@ -44,6 +45,7 @@ function FormularioProducto({}) {
         if (validarForm == true) {
         agregarProducto(producto).then((data) => {
             setProducto({ name: '', price: '', description: '', imagen: ""});
+            dispararSweetAlertBasico("Producto Agregado", "El producto fue agregado con éxito", "success", "Cerrar");
         }).catch((error) => {
             dispararSweetAlertBasico("Hubo un problema al agregar el producto", error, "error", "Cerrar")
         })
@@ -59,34 +61,39 @@ function FormularioProducto({}) {
     }
 
     return ( 
-        <form onSubmit={handleSubmit2}>
-        <h2>Agregar Producto</h2>
-        <div>
-            <label>Nombre:</label>
-            <input
-            type="text" name="name" value={producto.name} onChange={handleChange} required/>
-        </div>
-        <div>
-            <label>URL de la Imagen</label>
-            <input
-            type="text" name="imagen" value={producto.imagen} onChange={handleChange} required/>
-        </div>
-        <div>
-            <label>Precio:</label>
-            <input type="number" name="price" value={producto.price} onChange={handleChange} required
-            min="0"/>
-        </div>
-        <div>
-            <label>Descripción:</label>
-            <textarea
-            name="description"
-            value={producto.description}
-            onChange={handleChange}
-            required
-            />
-        </div>
-        <button type="submit">Agregar Producto</button>
-        </form>
+        <Container className="mt-5" style={{ maxWidth: 400 }}>
+            <h2>Agregar Producto</h2>
+            <Form onSubmit={handleSubmit2}>
+                <Form.Group className="mb-3 text-start">
+                    <FloatingLabel controlId="floatingInput" label="Nombre" className="mb-4">
+                        <Form.Control type="text" name="name"placeholder='nombre' value={producto.name} onChange={handleChange} required></Form.Control>
+                    </FloatingLabel> 
+                </Form.Group>
+                <Form.Group className="mb-3 text-start">
+                    <FloatingLabel controlId="floatingInput" label="Url Imagen" className="mb-4">
+                        <Form.Control type="text" name="imagen" placeholder='Url Imagen' value={producto.imagen} onChange={handleChange} required></Form.Control>
+                    </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3 text-start">
+                    <FloatingLabel controlId="floatingInput" label="Precio" className="mb-4">
+                    <Form.Control type="number" name="price" placeholder='precio' value={producto.price} onChange={handleChange} required
+                    min="0"></Form.Control>
+                    </FloatingLabel>
+                </Form.Group>
+                <Form.Group className="mb-3 text-start">
+                    <FloatingLabel controlId="floatingInput" label='Descripcion' className="mb-4">
+                    <Form.Control as="textarea"
+                    name="description"
+                    placeholder='descripcion'
+                    value={producto.description}
+                    onChange={handleChange}
+                    required></Form.Control>
+                    </FloatingLabel>
+                </Form.Group>
+                <Button type='submit' className='me-4 mb-5' variant='outline-primary'>Agregar Producto</Button>
+            </Form>
+        </Container>
+        
     );
 }
 

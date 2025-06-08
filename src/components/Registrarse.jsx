@@ -9,7 +9,7 @@ function Registrarse() {
 
     const [usuario, setUsuario] = useState('');
     const [password, setPassword] = useState('');
-    const { login, user } = useAuthContext();
+    const { login} = useAuthContext();
     const navigate = useNavigate();
 
 

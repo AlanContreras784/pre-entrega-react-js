@@ -7,7 +7,7 @@ import { CarritoContext } from '../contexts/CarritoContext';
 import { useAuthContext } from "../contexts/AuthContext";
 
 function Header() {
-    const {user, admin, login, logout}= useAuthContext()
+    const {user, admin, logout}= useAuthContext()
     const {productosCarrito} = useContext(CarritoContext)
     const navigate= useNavigate()
 
@@ -15,7 +15,7 @@ function Header() {
         navigate('/login');
     }
 
-    function handleNavigateLogout(){
+    function handleLogout(){
         logout();
     }
 
@@ -33,7 +33,7 @@ function Header() {
                                 <Nav.Link href="#" as={Link} to={'/carrito'} className='me-auto nav-link'><i class="fa-solid fa-cart-shopping"></i><small className='color-cantidad px-1'>{productosCarrito.length>0 ? productosCarrito.length : ""}</small></Nav.Link>
                                 <Nav.Link href="#" as={Link} to={'/about'} className='me-auto nav-link'>Nosotros</Nav.Link>
                                 {admin ? <Nav.Link href="#" as={Link} to={'/admin'} className='me-auto nav-link'>Admin</Nav.Link> : <></> } 
-                                <Nav.Link href="#" as={Link} to={'/login'} className='me-auto nav-link'><button className="btn btn-secondary border-boton" onClick={ !user? handleNavigateLogin : handleNavigateLogout}>{ !user ? 'Login' : 'Logout'}</button></Nav.Link>
+                                <Nav.Link href="#" as={Link} to={'/login'} className='me-auto nav-link'><button className="btn btn-secondary border-boton" onClick={ !user? handleNavigateLogin : handleLogout}>{ !user ? 'Login' : 'Logout'}</button></Nav.Link>
                                 {admin ? <Nav.Link href="#" as={Link} to={'/admin/agregarProductos'} className='me-auto nav-link'>Agregar Productos</Nav.Link> : <></>}
                             </Nav>
                         </Navbar.Collapse>

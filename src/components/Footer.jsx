@@ -20,29 +20,25 @@ function Footer() {
                         <h5 className="text-center">CONTENIDO</h5>
                         <Nav className=" row-cols-xl-auto">
                             <ul>
-                            <li><Nav.Link className="p-0" href="#home">Home</Nav.Link>
-                                
-                            </li>
-                                
-                            <li><Nav.Link className="p-0" href="#link">Link</Nav.Link>
-                            </li>
-                            <li>
-                            <NavDropdown className="p-0" title="Dropdown" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something
-                                </NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.4">Separated link
-                                </NavDropdown.Item>
-                            </NavDropdown>
-
-                            </li>
-                                
+                                <li><Nav.Link className="p-0" href="#home">Home</Nav.Link>
+                                </li>
+                                    
+                                <li><Nav.Link className="p-0" href="#link">Link</Nav.Link>
+                                </li>
+                                <li>
+                                    <NavDropdown className="p-0" title="Dropdown" id="basic-nav-dropdown">
+                                        <NavDropdown.Item href="#action/3.1">Action
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.2">Another action
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Item href="#action/3.3">Something
+                                        </NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item href="#action/3.4">Separated link
+                                        </NavDropdown.Item>
+                                    </NavDropdown>
+                                </li>    
                             </ul>
-                           
                         </Nav>
                     </div>
                     <div className="col-6 col-md-3 mt-4">

@@ -1,5 +1,5 @@
 import "../styles/Productos.css"
-import { Link, Navigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 function Card({producto}){
