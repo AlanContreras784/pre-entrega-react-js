@@ -2,7 +2,7 @@ import { crearUsuario } from "../Auth/firebase";
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../contexts/AuthContext';
 import { useState } from "react";
-import { Button, Container, Form, } from "react-bootstrap";
+import { Button, Card, Container, Form, } from "react-bootstrap";
 import { dispararSweetAlertBasico } from "../assets/SweetAlert";
 
 function Registrarse() {
@@ -36,8 +36,10 @@ function Registrarse() {
     }
     return (
 
-        <Container className="mt-5" style={{ maxWidth: 400 }}>
-                <h2>Registrarse</h2>
+        <Container className="mt-5 mb-5 d-flex justify-content-center align-items-center" style={{ maxWidth: 400 }}>
+            <Card style={{ width: "24rem" }}>
+                <Card.Body>
+                <Card.Title className="mb-3 text-center"><h2>Registrarse</h2></Card.Title>
                 <Form onSubmit={registrarUsuario}>
                 <Form.Group className="mb-3 text-start">
                     <Form.Label >Email:</Form.Label>
@@ -47,10 +49,12 @@ function Registrarse() {
                     <Form.Label>Contraseña:</Form.Label>
                     <Form.Control value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
                 </Form.Group>
-                <Button className='mb-5 me-4' variant="outline-primary" type='submit'>Registrarse</Button>
-                <Link to={'/login'}><Button className="mb-5" variant='primary'>Login in</Button></Link>
+                <Button className='mb-3 me-4' variant="primary" type='submit'>Registrarse</Button>
+                <Link to={'/login'}><Button className="mb-3" variant='outline-primary'>Login in</Button></Link>
                 </Form>
-            </Container>
+                </Card.Body>
+            </Card>
+        </Container>
     );
 }
 

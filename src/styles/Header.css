@@ -4,7 +4,8 @@
     justify-content: space-around;
     align-items: center;
     background-color: #727272;
-    padding: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
     text-align: center;
     color: #FEFAE0;
     z-index: 1000;
