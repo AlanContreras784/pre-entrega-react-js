@@ -40,9 +40,9 @@ function Header() {
                         </Navbar.Collapse>
                 </Container>
             </Navbar> */}
-            <Navbar collapseOnSelect expand='lg' className="bg-body-primary mb-3 fs-6 py-2 " variant="dark">
+            <Navbar collapseOnSelect expand='lg' className="bg-body-primary  fs-6 py-2 " variant="dark">
                 <Container className="mt-1 mb-1" fluid>
-                    <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+                    <Navbar.Brand as={Link} to={'/'} href="#home"><img className="logo  me-auto" src={Logo} alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} />
                     <Navbar.Offcanvas
                     id={`offcanvasNavbar-expand-lg`}
@@ -63,9 +63,9 @@ function Header() {
                             <Nav.Link href="#" as={Link} to={'/contacto'} className='nav-link'>Contacto</Nav.Link>
                             <Nav.Link href="#" as={Link} to={'/about'} className='nav-link'>Nosotros</Nav.Link>
                             {admin ? <Nav.Link href="#" as={Link} to={'/admin'} className='nav-link'>Admin</Nav.Link> : <></> } 
-                            <Nav.Link href="#" as={Link} to={'/carrito'} className='nav-link position-relative'><i class="fa-solid fa-cart-shopping"><Badge pill bg="danger" className="position-absolute top-1 start-100 translate-middle">{productosCarrito.length>0 ? productosCarrito.length : ""}</Badge></i>
+                            <Nav.Link href="#" as={Link} to={'/carrito'} className='nav-link position-relative'><i class="fa-solid fa-cart-shopping"><Badge pill bg="danger" className="position-absolute top-1 me-5 translate-middle">{productosCarrito.length>0 ? productosCarrito.length : ""}</Badge></i>
                             </Nav.Link>
-                            <Nav.Link href="#" as={Link} to={'/login'} className='me-auto nav-link'><button className="btn btn-secondary border-boton ms-3" onClick={ !user? handleNavigateLogin : handleLogout}>{ !user ? 'Login' : 'Logout'}</button></Nav.Link>
+                            <Nav.Link href="#" as={Link} to={'/login'} className='me-auto nav-link'><Button size="sm" className="btn btn-secondary border-boton " onClick={ !user? handleNavigateLogin : handleLogout}>{ !user ? 'Login' : 'Logout'}</Button></Nav.Link>
                             {admin ? <Nav.Link href="#" as={Link} to={'/admin/agregarProductos'} className='me-auto nav-link'>Agregar Productos</Nav.Link> : <></>}
                             <NavDropdown
                                 title="Dropdown"
@@ -83,12 +83,13 @@ function Header() {
                             </Nav>
                             <Form className="d-flex">
                                 <Form.Control
+                                    size="sm"
                                     type="search"
                                     placeholder="Search"
                                     className="me-2 my-2"
                                     aria-label="Search"
                                 />
-                                <Button className="my-2" variant="light">Search</Button>
+                                <Button size="sm" className="my-2" variant="light">Search</Button>
                             </Form>
                         </Offcanvas.Body>
                     </Navbar.Offcanvas>

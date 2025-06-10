@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Swal from 'sweetalert2';
 import '../styles/Contacto.css'
+import { Button, Card, Container, FloatingLabel, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function FormularioConSweetAlert() {
   const [nombre, setNombre] = useState('');
@@ -49,44 +51,37 @@ function FormularioConSweetAlert() {
   };
 
   return (
-    <form className='py-5 formulario' onSubmit={handleSubmit} >
-      <h1>Escribenos...!</h1>
-      <h3 className='lead'>Ponte en contacto con nosotros!</h3>
-
-      <div>
-        <label>Nombre:</label>
-        <input
-          type="text"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          placeholder="Tu nombre"
-        />
-      </div>
-
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Tu email"
-        />
-      </div>
-
-      <div>
-        <label>Mensaje:</label>
-        <textarea
-          value={mensaje}
-          onChange={(e) => setMensaje(e.target.value)}
-          placeholder="Escribí tu mensaje..."
-          rows="4"
-        ></textarea>
-      </div>
-
-      <button className='btn btn-outline-primary' type="submit" style={{ padding: '10px 20px' }}>
-        Enviar
-      </button>
-    </form>
+    <Container className='mt-5 d-flex justify-content-center align-items-center mb-5'>
+      <Card style={{ width: "24rem" }}>
+          <Card.Body>
+          <Card.Title className="mb-3 text-center"><h2>Escribenos...!</h2></Card.Title>
+          <Card.Subtitle><h3 className='lead'>Ponte en contacto con nosotros!</h3></Card.Subtitle>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3 text-start">
+              <FloatingLabel controlId="floatingInput" label='Nombre:' className="mb-4">
+                <Form.Control type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Nombre:" />
+              </FloatingLabel>  
+            </Form.Group>
+            <Form.Group className="mb-3 text-start">
+              <FloatingLabel controlId="floatingInput" label='Email:' className="mb-4">
+                <Form.Control value={email} type="email" onChange={(e) => setEmail(e.target.value)} placeholder='Email:' />
+              </FloatingLabel>  
+            </Form.Group>
+            <Form.Group className="mb-3 text-start">
+                <FloatingLabel controlId="floatingInput" label='Mensaje:' className="mb-4">
+                <Form.Control as="textarea"
+                  value={mensaje}
+                  onChange={(e) => setMensaje(e.target.value)}
+                  placeholder="Escribí tu mensaje..."
+                  rows="4"
+                ></Form.Control>
+                </FloatingLabel>
+            </Form.Group>
+            <Button className='me-4 mb-3' variant="outline-primary"  type='submit'>Enviar</Button>
+          </Form>
+          </Card.Body>
+        </Card>
+    </Container>
   );
 }
 

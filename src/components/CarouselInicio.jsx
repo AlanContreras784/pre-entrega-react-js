@@ -7,7 +7,7 @@ import '../styles/Carousel.css'
 
 function CarouselInicio() {
   return (
-    <Carousel>
+    <Carousel className='mb-3 mt-3'>
       <Carousel.Item>
         <img src={imagen3}/>
         <Carousel.Caption className=''>

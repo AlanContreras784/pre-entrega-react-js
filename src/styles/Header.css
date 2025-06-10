@@ -24,10 +24,6 @@
 
 /*background-color: #bc6b25e8;*/
 
-.color-cantidad{
-    color: white;
-    font-size: medium;
-}
 
 .navbar-nav {
     --bs-nav-link-padding-x: 0rem;
@@ -38,6 +34,11 @@
     .navbar-expand-lg .navbar-nav .nav-link {
         padding-right: var(--bs-navbar-nav-link-padding-x); 
         padding-left: 0.5rem; 
+        justify-content: end;
+        align-items: end;
+    }
+    .navbar-expand-lg .offcanvas .offcanvas-body .nav{
+        align-items: center;
     }
 }
 
