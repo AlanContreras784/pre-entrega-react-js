@@ -1,44 +1,50 @@
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "../styles/ProductoDetalle.css";
 import { dispararSweetAlertBasico } from "../assets/SweetAlert";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { CarritoContext } from "../contexts/CarritoContext";
+import { Button } from "react-bootstrap";
+import { useAuthContext } from "../contexts/AuthContext";
+import { useProductosContext } from "../contexts/ProductosContext";
 
 function ProductoDetalle({}) {
   const {agregarAlCarrito} = useContext(CarritoContext);
-
+  const {admin}= useAuthContext();
+  const {obtenerUnProducto, productoSeleccionado, eliminarProducto} = useProductosContext();
   const { id } = useParams();
-  const [producto, setProducto] = useState(null);
+  //const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+  const navigate=useNavigate();
 
   console.log(id)
 
   {useEffect(() => {
-    fetch('https://68100ddf27f2fdac24102328.mockapi.io/productos')
-      .then((respuesta) => respuesta.json())
-      .then((data) => {
-        const productoEncontrado = data.find((d) =>d.id === id);
-        if (productoEncontrado) {
-          setProducto(productoEncontrado);
-        } else {
-          setError("Producto no encontrado.");
-        }
+    obtenerUnProducto(id).then((productoSeleccionado) => {
+      setCargando(false);
+    }).catch((error) => {
+        setError('Hubo un problema al cargar los productos.');
         setCargando(false);
-      })
-      .catch((err) => {
-        console.log("Error:", err);
-        setError("Hubo un error al obtener el producto.");
-        setCargando(false);
-      });
+    })
   }, [id]);}
+
+  function dispararEliminar(){
+    eliminarProducto(id).then(()=>{
+      navigate('/productos')
+    }).catch((error)=>{
+      dispararSweetAlertBasico("Hubo un problema al agregar el producto", error, "error", "Cerrar")
+    })
+
+  }
+
+
 
   function funcionCarrito() {
     if (cantidad < 1) return;
     dispararSweetAlertBasico("Producto Agregado", "El producto fue agregado al carrito con éxito", "success", "Cerrar");
-    agregarAlCarrito({ ...producto, cantidad });
+    agregarAlCarrito({ ...productoSeleccionado, cantidad });
   }
 
   function sumarContador() {
@@ -51,23 +57,34 @@ function ProductoDetalle({}) {
 
   if (cargando) return <p>Cargando producto...</p>;
   if (error) return <p>{error}</p>;
-  if (!producto) return null;
+  if (!productoSeleccionado) return null;
 
   return (
     <div className="detalle-container">
-        <img className="detalle-imagen mx-auto" src={producto.imagen} alt={producto.name} />
+        <img className="detalle-imagen mx-auto" src={productoSeleccionado.imagen} alt={productoSeleccionado.name} />
       <div className="detalle-info">
-        <h2>{producto.name}</h2>
-        <small>{producto.description}</small>
-        <p>{producto.price} $</p>
-        <div>
-            <button className="me-3 btn btn-light" onClick={restarContador}>-</button>
-            <span>{cantidad}</span>
-            <button className="ms-3 btn btn-light" onClick={sumarContador}>+</button>
-        </div>
-        <button className="mx-auto btn btn-outline-primary " onClick={funcionCarrito}>Agregar al carrito</button>
-        <Link className="mx-auto" to={"/productos/"}> <button className=" btn btn-outline-success ">Volver a Productos</button> </Link>
-        <Link to={"/carrito"}><button  className="btn btn-outline-warning">Ir a Carrito</button></Link>      
+        <h2>{productoSeleccionado.name}</h2>
+        <small>{productoSeleccionado.description}</small>
+        <p>{productoSeleccionado.price} $</p>
+        {admin?
+          <div>
+            <Link to={"/admin/editarProducto/" + id}><Button variant="outline-warning">Editar Producto</Button></Link>
+            <Button variant="outline-danger" onClick={dispararEliminar}>Eliminar Producto</Button>
+          </div> 
+          :
+          <div >
+            <div>
+                <button className="me-3 btn btn-light" onClick={restarContador}>-</button>
+                <span>{cantidad}</span>
+                <button className="ms-3 btn btn-light" onClick={sumarContador}>+</button>
+            </div>
+            <div className="d-flex  flex-column ">
+              <Button className="mx-auto mb-2 " variant="outline-primary" onClick={funcionCarrito}>Agregar al carrito</Button>
+              <Link className="mx-auto mb-2" to={"/productos/"}> <Button variant="outline-success ">Volver a Productos</Button> </Link>
+              <Link to={"/carrito"}><Button  variant="outline-warning">Ir a Carrito</Button></Link> 
+            </div>  
+          </div>
+        } 
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ export function AuthProvider({ children }) {
     setUser(username);
   };
 
-  //Funcion para cerrar Sesion
+  //Funcion para cerrar Sesion-------------------------------------
   const logout = () => {
     Swal.fire({
         title: "¿Estás seguro?",
@@ -42,8 +42,21 @@ export function AuthProvider({ children }) {
     });
 
   };
+
+  //FUNNCION PARA VERIFICACION DE USUARIO Y ADMIN--------------------------
+  function verificacionLog(){
+    const userToken = localStorage.getItem("authToken")
+    if(userToken && userToken == "fake-token-admin@gmail.com"){
+      setAdmin(true)
+      setUser(userToken)
+      return
+    }if(userToken){
+      setUser(userToken)
+    }
+  }
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, admin }}>
+    <AuthContext.Provider value={{ user, login, logout, admin, verificacionLog }}>
       {children}
     </AuthContext.Provider> );
 }

@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { agregarProducto } from '../assets/requests';
 import { useAuthContext } from '../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 import { dispararSweetAlertBasico } from '../assets/SweetAlert';
 import { Alert, Button, Card, Container, FloatingLabel, Form } from 'react-bootstrap';
+import { useProductosContext } from '../contexts/ProductosContext';
 
 function FormularioProducto({}) {
 
     const {admin} = useAuthContext();
     const [error, setError] = useState("");
-
+    const {agregarProducto} = useProductosContext();
     const [producto, setProducto] = useState({
         name: '',
         price: '',

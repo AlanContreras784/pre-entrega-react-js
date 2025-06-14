@@ -1,7 +1,7 @@
 import Logo from "../assets/img/Logo Cero Huella Horiz.png"
 import "../styles/Header.css"
 import {Container, Navbar, Nav, Badge, NavDropdown, Offcanvas, Form, Button} from 'react-bootstrap';
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate, useRevalidator} from "react-router-dom";
 import { useContext } from 'react';
 import { CarritoContext } from '../contexts/CarritoContext';
 import { useAuthContext } from "../contexts/AuthContext";
@@ -65,7 +65,7 @@ function Header() {
                             {admin ? <Nav.Link href="#" as={Link} to={'/admin'} className='nav-link'>Admin</Nav.Link> : <></> } 
                             <Nav.Link href="#" as={Link} to={'/carrito'} className='nav-link position-relative'><i class="fa-solid fa-cart-shopping"><Badge pill bg="danger" className="position-absolute top-1 me-5 translate-middle">{productosCarrito.length>0 ? productosCarrito.length : ""}</Badge></i>
                             </Nav.Link>
-                            <Nav.Link href="#" as={Link} to={'/login'} className='me-auto nav-link'><Button size="sm" className="btn btn-secondary border-boton " onClick={ !user? handleNavigateLogin : handleLogout}>{ !user ? 'Login' : 'Logout'}</Button></Nav.Link>
+                            <Nav.Link href="#" as={Link} to={'/login'} className='me-auto nav-link'><Button size="sm" className="btn btn-secondary border-boton " onClick={ !user ? handleNavigateLogin : handleLogout}>{ !user ? 'Login' : 'Logout'}</Button></Nav.Link>
                             {admin ? <Nav.Link href="#" as={Link} to={'/admin/agregarProductos'} className='me-auto nav-link'>Agregar Productos</Nav.Link> : <></>}
                             <NavDropdown
                                 title="Dropdown"

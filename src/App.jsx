@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './layouts/Home'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
@@ -13,9 +13,17 @@ import Admin from './components/Admin';
 import Login from './components/Login';
 import Registrarse from './components/Registrarse';
 import FormularioProducto from './components/FormularioProducto';
+import FormularioEdicion from './components/FormularioEdicion';
+import { useAuthContext } from './contexts/AuthContext';
 
 
 function App() {
+
+  const {verificacionLog, admin} = useAuthContext();
+
+  useEffect(() => {
+    verificacionLog()
+  }, [])
 
   
   return (
@@ -36,6 +44,7 @@ function App() {
             <Route path="/productos/:id" element={<ProductoDetalle/>} />
             <Route path="/admin" element={<Admin/>}/>
             <Route path="/admin/agregarProductos" element={<FormularioProducto/>}/>
+            <Route path='/admin/editarProducto/:id' element={<FormularioEdicion/>}/>
             
           </Routes>
           <Footer/>

@@ -11,7 +11,7 @@ export default function Admi() {
         )
         
     }
- 
+
   return (
     <div className="container text-center mt-5 mb-5">
       <FaTools size={64} className="text-warning mb-4" />

@@ -1,32 +1,21 @@
-import { useEffect, useState } from "react"
+import {useEffect, useState } from "react"
 import "../styles/Productos.css"
 import Card from "./Card"
+import { useProductosContext } from "../contexts/ProductosContext";
 
-function ProductosContainer({functionCarrito}){
-    const [productos, setProductos] = useState([])
-    const [cargando, setCargando] = useState(true);
+function ProductosContainer({}){
+    const {productos, obtenerProductos} = useProductosContext();
     const [error, setError] = useState(null);
+    const [cargando, setCargando]= useState(true)
 
     {useEffect(() => {
-        fetch('https://68100ddf27f2fdac24102328.mockapi.io/productos')
-            .then((respuesta) =>
-                respuesta.json()
-            )
-            .then((data) => {
-                console.log(data)
-                setProductos(data)
-                setCargando(false);
-            })
-            .catch((error) => {
-                console.log("Error", error)
-                setError('Hubo un problema al cargar los productos.');
-                setCargando(false);
-            });
+        obtenerProductos().then((productos) => {
+            setCargando(false);
+        }).catch((error) => {
+            setError('Hubo un problema al cargar los productos.');
+            setCargando(false);
+        })
     }, []);}
-
-    function functionEnProductos(producto){
-        functionCarrito(producto)
-    }
 
     if (cargando) {
         return <p>Cargando productos...</p>;
@@ -34,20 +23,13 @@ function ProductosContainer({functionCarrito}){
         return <p>{error}</p>;
     }else{
         return(
-            <div>
-                <div className="">
-                    <h1 className="text-center py-3">Nuestros Productos</h1>
-                </div>
-                <div className="productos-conteiner">
-                    {productos.map((producto) => (
+            <div className="productos-conteiner">
+                {productos.map((producto) => (
                     <Card
                         key={producto.id}
                         producto={producto}
-                        funcionCarrito={functionEnProductos}
                     />
                 ))}
-                </div>
-                
             </div>
         )
     }
