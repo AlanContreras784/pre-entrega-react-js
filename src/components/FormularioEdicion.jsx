@@ -73,7 +73,7 @@ function FormularioEdicion() {
 
   return ( 
       <Container className="mt-5 d-flex justify-content-center align-items-center mb-5" style={{ maxWidth: 400 }}>
-          <Card style={{ width: "24rem" }}>
+          <Card className='shadow-lg' style={{ width: "24rem" }}>
               <Card.Body>
               <Card.Title className="mb-3 text-center">Editar Producto</Card.Title>
               {error && <Alert variant="danger">{error}</Alert>}
@@ -90,7 +90,7 @@ function FormularioEdicion() {
                   </Form.Group>
                   <Form.Group className="mb-3 text-start">
                       <FloatingLabel controlId="floatingInput" label="Precio" className="mb-4">
-                      <Form.Control type="number" name="price" placeholder='precio' value={producto.price} onChange={handleChange} min="0"></Form.Control>
+                      <Form.Control type="number" step={0.01} name="price" placeholder='precio' value={producto.price} onChange={handleChange} min="0"></Form.Control>
                       </FloatingLabel>
                   </Form.Group>
                   <Form.Group className="mb-3 text-start">

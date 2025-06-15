@@ -1,11 +1,6 @@
 .footer{
-    background-color: #606C38;
+    background-color: #58585a;
     color: #FEFAE0;
-    padding: 10px;
-    text-align: center;
-    flex-wrap: wrap;
-    margin: 0px;
-    padding: 0px;
 }
 .img-footer{
     width: 150px;

@@ -1,11 +1,14 @@
 import { createContext, useState, useContext } from 'react';
 import Swal from "sweetalert2";
+
 // Crear el contexto de autenticación
 const AuthContext = createContext();
 export function AuthProvider({ children }) {
   
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState(false);
+
+  //--------------------FUNCION INICIAR SESION ------------------------------------
 
   const login = (username) => {
     // Simulando la creación de un token (en una app real, esto sería generado por un servidor)

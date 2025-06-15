@@ -9,7 +9,7 @@ function CarouselInicio() {
   return (
     <Carousel className='mb-3 mt-3'>
       <Carousel.Item>
-        <img src={imagen3}/>
+        <img src='https://i.postimg.cc/CKSKzrQ5/biodegradables-carrusel.jpg'/>
         <Carousel.Caption className=''>
           <h3>Tecnología al alcance de tu hogar</h3>
           <p>
@@ -25,14 +25,14 @@ function CarouselInicio() {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img src={imagen1}/>
+        <img src='https://i.postimg.cc/0N0bn1w7/reutilizables-carrusel.jpg'/>
         <Carousel.Caption className=''>
           <h3> Fotografía de producto profesional</h3>
           <p>Tu escaparate digital merece lo mejor. Inspírate en cómo mostrar tus productos de forma atractiva y profesional.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img src={imagen4}/>
+        <img src={imagen3}/>
         <Carousel.Caption className=''>
           <h3>Moda inteligente, estilo auténtico</h3>
           <p>

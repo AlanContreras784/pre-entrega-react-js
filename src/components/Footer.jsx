@@ -1,4 +1,4 @@
-// import "../styles/Footer.css";
+import "../styles/Footer.css";
 // import Nav from 'react-bootstrap/Nav';
 // import NavDropdown from 'react-bootstrap/NavDropdown'
 // import logoFooter from '../assets/img/cerohuellaredondoconryv_pequeña.png'
@@ -64,11 +64,11 @@ import logoFooter from "../assets/img/cerohuellaredondoconryv_pequeña.png";
 
 function Footer() {
     return (
-        <footer className="bg-success py-2 pt-4">
+        <footer className="footer py-2 pt-4">
             <Container fluid>
                 <Row className="text-center text-md-start">
                     <Col xs={12} md={3} className="d-flex justify-content-center align-items-center mb-4 mb-md-0">
-                        <Image src={logoFooter} alt="Logo de Cero Huella" fluid style={{ maxHeight: "150px" }} />
+                        <Image className="img-footer" src={logoFooter} alt="Logo de Cero Huella" fluig />
                     </Col>
 
                     <Col xs={12} md={3} className="mb-4 mb-md-0 ">

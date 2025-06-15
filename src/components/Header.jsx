@@ -1,7 +1,7 @@
 import Logo from "../assets/img/Logo Cero Huella Horiz.png"
 import "../styles/Header.css"
 import {Container, Navbar, Nav, Badge, NavDropdown, Offcanvas, Form, Button} from 'react-bootstrap';
-import { Link, useNavigate, useRevalidator} from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useContext } from 'react';
 import { CarritoContext } from '../contexts/CarritoContext';
 import { useAuthContext } from "../contexts/AuthContext";
@@ -21,25 +21,6 @@ function Header() {
 
     return (
         <header className="header ">
-            {/* <Navbar collapseOnSelect expand="lg" variant="dark"  className="fs-5 py-0">
-                <Container fluid>
-                    <Navbar.Brand as={Link} to={'/'} href="#home"><img className="logo  me-auto" src={Logo} alt="" /></Navbar.Brand>
-                    <Navbar.Toggle aria-controls="responsive-navbar-nav" className="ms-auto"/>
-                        <Navbar.Collapse id="responsive-navbar-nav">
-                            <Nav className="ms-auto">
-                                <Nav.Link href="#" as={Link} to={'/'} className='me-auto nav-link'>Home</Nav.Link>
-                                <Nav.Link href="#" as={Link} to={'/productos'} className='me-auto nav-link'>Productos</Nav.Link>
-                                <Nav.Link href="#" as={Link} to={'/contacto'} className='me-auto nav-link'>Contacto</Nav.Link>
-                                <Nav.Link href="#" as={Link} to={'/about'} className='me-auto nav-link'>Nosotros</Nav.Link>
-                                {admin ? <Nav.Link href="#" as={Link} to={'/admin'} className='me-auto nav-link'>Admin</Nav.Link> : <></> } 
-                                <Nav.Link href="#" as={Link} to={'/carrito'} className='me-auto nav-link position-relative'><i class="fa-solid fa-cart-shopping"></i><Badge pill bg="danger" className="position-absolute top-1 start-100 translate-middle">{productosCarrito.length>0 ? productosCarrito.length : ""}</Badge>
-                                </Nav.Link>
-                                <Nav.Link href="#" as={Link} to={'/login'} className='me-auto nav-link'><button className="btn btn-secondary border-boton ms-3" onClick={ !user? handleNavigateLogin : handleLogout}>{ !user ? 'Login' : 'Logout'}</button></Nav.Link>
-                                {admin ? <Nav.Link href="#" as={Link} to={'/admin/agregarProductos'} className='me-auto nav-link'>Agregar Productos</Nav.Link> : <></>}
-                            </Nav>
-                        </Navbar.Collapse>
-                </Container>
-            </Navbar> */}
             <Navbar collapseOnSelect expand='lg' className="bg-body-primary  fs-6 py-2 " variant="dark">
                 <Container className="mt-1 mb-1" fluid>
                     <Navbar.Brand as={Link} to={'/'} href="#home"><img className="logo  me-auto" src={Logo} alt="" /></Navbar.Brand>

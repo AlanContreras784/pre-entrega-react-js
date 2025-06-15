@@ -1,7 +1,8 @@
 import {useEffect, useState } from "react"
 import "../styles/Productos.css"
-import Card from "./Card"
+import Card from "./CardProducto"
 import { useProductosContext } from "../contexts/ProductosContext";
+import CardProducto from "./CardProducto";
 
 function ProductosContainer({}){
     const {productos, obtenerProductos} = useProductosContext();
@@ -25,7 +26,7 @@ function ProductosContainer({}){
         return(
             <div className="productos-conteiner">
                 {productos.map((producto) => (
-                    <Card
+                    <CardProducto
                         key={producto.id}
                         producto={producto}
                     />

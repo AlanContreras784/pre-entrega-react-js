@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect} from 'react'
 import './App.css'
 import Home from './layouts/Home'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ProductosContainer from './components/ProductosContainer';
 import Carrito from './components/Carrito';
 import About from './components/About';

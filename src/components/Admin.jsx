@@ -2,15 +2,14 @@ import { FaTools } from 'react-icons/fa';
 import { useAuthContext } from '../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
 
-export default function Admi() {
+export default function Admin() {
   const {admin} =useAuthContext();
 
   if(!admin){
-        return(
-            <Navigate to='/login' replace />
-        )
-        
-    }
+    return(
+        <Navigate to='/login' replace />
+    ) 
+  }
 
   return (
     <div className="container text-center mt-5 mb-5">

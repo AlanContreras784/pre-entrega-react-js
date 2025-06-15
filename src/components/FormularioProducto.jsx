@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuthContext } from '../contexts/AuthContext';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { dispararSweetAlertBasico } from '../assets/SweetAlert';
 import { Alert, Button, Card, Container, FloatingLabel, Form } from 'react-bootstrap';
 import { useProductosContext } from '../contexts/ProductosContext';
@@ -10,6 +10,7 @@ function FormularioProducto({}) {
     const {admin} = useAuthContext();
     const [error, setError] = useState("");
     const {agregarProducto} = useProductosContext();
+    const navigate = useNavigate();
     const [producto, setProducto] = useState({
         name: '',
         price: '',
@@ -48,6 +49,7 @@ function FormularioProducto({}) {
             setProducto({ name: '', price: '', description: '', imagen: ""});
             setError('')
             dispararSweetAlertBasico("Producto Agregado", "El producto fue agregado con éxito", "success", "Cerrar");
+            //navigate("/productos/");
         }).catch((error) => {
             dispararSweetAlertBasico("Hubo un problema al agregar el producto", error, "error", "Cerrar")
         })
@@ -65,7 +67,7 @@ function FormularioProducto({}) {
 
     return ( 
         <Container className="mt-5 d-flex justify-content-center align-items-center mb-5" style={{ maxWidth: 400 }}>
-            <Card style={{ width: "24rem" }}>
+            <Card className='shadow-lg' style={{ width: "24rem" }}>
                 <Card.Body>
                 <Card.Title className="mb-3 text-center">Agregar Producto</Card.Title>
                 {error && <Alert variant="danger">{error}</Alert>}

@@ -1,5 +1,6 @@
 import { createContext, useState, useContext } from 'react';
 import Swal from "sweetalert2";
+
 // Crear el contexto del manejo de Productos------------------------------------ 
 const ProductosContext = createContext();
 
@@ -73,18 +74,18 @@ export function ProductosProvider({ children }) {
                 } else {
                     rej("Producto no encontrado.");
                 }
-                //setCargando(false);
                 })
                 .catch((error) => {
                 console.log("Error:", error);
-                //setError("Hubo un error al obtener el producto.");
-                //setCargando(false);
                 rej(error)
                 });
         })
         )
         
     };
+
+//--------------------FUNCION MODIFICAR UN PRODUCTO YA EXISTENTE DE LA API------------------------------------
+
 function editarProducto(producto){
     return(
         new Promise(async (res,rej)=>{
@@ -110,26 +111,24 @@ function editarProducto(producto){
     )
 }
 
+//--------------------FUNCION ELIMINAR UN PRODUCTO  A LA API------------------------------------
+
 const eliminarProducto = (id) => {
-    const confirmar = window.confirm('¿Estás seguro de eliminar?');
-    if (confirmar) {
-        return(
-            new Promise(async (res, rej) => {
-                try {
-                    const respuesta = await fetch(`https://68100ddf27f2fdac24102328.mockapi.io/productos/${id}`, {
-                    method: 'DELETE',
-                    });
-                    if (!respuesta.ok) throw new Error('Error al eliminar');
-                    alert('Producto eliminado correctamente.');
-                    res()
-                } catch (error) {
-                    console.error(error.message);
-                    alert('Hubo un problema al eliminar el producto.');
-                    rej(error)
-                }
-            })
-        )
-    }
+    
+    return(
+        new Promise(async (res, rej) => {
+            try {
+                const respuesta = await fetch(`https://68100ddf27f2fdac24102328.mockapi.io/productos/${id}`, {
+                method: 'DELETE',
+                });
+                if (!respuesta.ok) throw new Error('Error al eliminar');
+                res()
+            } catch (error) {
+                console.error(error.message);
+                rej(error)
+            }
+        })
+    )
 }
 
 

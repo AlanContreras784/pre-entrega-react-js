@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import Swal from 'sweetalert2';
 import '../styles/Contacto.css'
-import { Button, Card, Container, FloatingLabel, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Alert, Button, Card, Container, FloatingLabel, Form } from 'react-bootstrap';
+import { dispararSweetAlertBasico } from '../assets/SweetAlert';
 
 function FormularioConSweetAlert() {
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const [error, setError] = useState('');
 
   // Expresion Regular
   const emailEsValido = (email) => {
@@ -20,41 +20,33 @@ function FormularioConSweetAlert() {
 
     // Valido Campos completos
     if (nombre.trim() === '' || email.trim() === '' || mensaje.trim() === '') {
-      Swal.fire({
-        icon: 'error',
-        title: 'Campos incompletos',
-        text: 'POr favor completar todos los campos',
-      });
+      dispararSweetAlertBasico('Campos incompletos','Por favor completar todos los campos','error', 'OK')
+      setError('Por favor completar todos los campos')
       return;
     }
 
     // Validar formato de email
     if (!emailEsValido(email)) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Email no es valido',
-        text: 'Ingresá un email con formato valido.',
-      });
+      dispararSweetAlertBasico('Email no es valido', 'Ingresá un email con formato valido.', 'error', 'OK')
+      setError('Ingresá un email con formato valido.')
       return;
     }
 
     // Si todo está OK y no hay ningun return
-    Swal.fire({
-      icon: 'success',
-      title: 'Formulario enviado',
-      text: `Gracias, ${nombre}. Te responderemos pronto.`,
-    });
+    dispararSweetAlertBasico('Formulario enviado',`Gracias, ${nombre}. Te responderemos pronto.`, 'success','OK')
 
     setNombre('');
     setEmail('');
     setMensaje('');
+    setError('');
   };
 
   return (
     <Container className='mt-5 d-flex justify-content-center align-items-center mb-5'>
-      <Card style={{ width: "24rem" }}>
+      <Card className='shadow-lg' style={{ width: "24rem" }}>
           <Card.Body>
           <Card.Title className="mb-3 text-center"><h2>Escribenos...!</h2></Card.Title>
+          {error && <Alert variant="danger">{error}</Alert>}
           <Card.Subtitle><h3 className='lead'>Ponte en contacto con nosotros!</h3></Card.Subtitle>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3 text-start">

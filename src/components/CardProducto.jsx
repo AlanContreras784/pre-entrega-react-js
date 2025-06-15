@@ -1,8 +1,9 @@
+import { Container, Card } from "react-bootstrap";
 import "../styles/Productos.css"
 import { Link} from "react-router-dom";
 
 
-function Card({producto}){
+function CardProducto({producto}){
     
     return(
         <div className="productos-conteiner" >
@@ -13,9 +14,14 @@ function Card({producto}){
                 <Link to={"/productos/"+producto.id}><button className="btn btn-outline-warning">Ver Detalles del Producto</button></Link>
                 
             </div>
+            <Container>
+                <Card>
+                    
+                </Card>
+            </Container>
             
         </div>
     )
 }
 
-export default Card
+export default CardProducto;
