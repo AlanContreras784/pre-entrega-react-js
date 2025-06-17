@@ -2,9 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 20px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    gap: 4rem;
+    padding: 50px;
     background-color: #d3d1d1;
 }
 
@@ -14,26 +13,26 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    background-color: #FEFAE0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    width: 300px;
+    background-color: white;
+    /*border: 1px solid #7cb744fa;*/
+    width: 250px;
     text-align: center;
-    padding: 20px;
     row-gap: 10px;
     color: #283618;
+    box-shadow: 0 2rem 4rem rgba(10, 7, 7, 0.589);
     h1{
         font-size: 1.5rem;
     }
     p{
         font-weight: 500;
     }
+    button{
+        margin-bottom: 1rem;
+    }
 }
 
 .producto-image{
-    width: 100px;
-    height: 150px;
-    border-radius: 5%;
-    padding: 5px;
-    
+    width: 250px;
+    height: 300px;
+    border: 1px solid #7cb744fa;
 }

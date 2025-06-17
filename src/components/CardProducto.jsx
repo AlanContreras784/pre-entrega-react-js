@@ -1,4 +1,4 @@
-import { Container, Card } from "react-bootstrap";
+import { Container, Card, Button } from "react-bootstrap";
 import "../styles/Productos.css"
 import { Link} from "react-router-dom";
 
@@ -6,21 +6,17 @@ import { Link} from "react-router-dom";
 function CardProducto({producto}){
     
     return(
-        <div className="productos-conteiner" >
-            <div key={producto.id} className="producto-card">
-                <img className="producto-image" src={producto.imagen}></img>
-                <h1>{producto.name}</h1>
-                <p>{producto.price} $</p>
-                <Link to={"/productos/"+producto.id}><button className="btn btn-outline-warning">Ver Detalles del Producto</button></Link>
-                
-            </div>
-            <Container>
-                <Card>
-                    
+        
+                <Card className="producto-card rounded-4 " key={producto.id}>
+                    <Card.Body className="p-0 ">
+                        <img className="producto-image mb-2 rounded-top-4" src={producto.imagen}></img>
+                        <Card.Title><h5>{producto.name}</h5></Card.Title>
+                        <Card.Subtitle><p>{producto.price} $</p></Card.Subtitle>
+                        <Link to={"/productos/"+producto.id}><Button variant="outline-success">Ver Detalles del Producto</Button></Link>
+                    </Card.Body>
                 </Card>
-            </Container>
             
-        </div>
+            
     )
 }
 

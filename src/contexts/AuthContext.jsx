@@ -9,11 +9,11 @@ export function AuthProvider({ children }) {
   const [admin, setAdmin] = useState(false);
 
   //--------------------FUNCION INICIAR SESION ------------------------------------
-
   const login = (username) => {
     // Simulando la creación de un token (en una app real, esto sería generado por un servidor)
     const token = `fake-token-${username}`;
-    if(username=="admin@gmail.com"){ //contraseña : test12
+  
+    if(username==="admin@gmail.com"){ //contraseña : test12
         setAdmin(true);
     }
     localStorage.setItem('authToken', token);
@@ -41,6 +41,8 @@ export function AuthProvider({ children }) {
             localStorage.removeItem('authToken');
             setUser(null);
             setAdmin(false)
+        }else{
+
         }
     });
 
@@ -59,7 +61,7 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, admin, verificacionLog }}>
+    <AuthContext.Provider value={{ user, login, logout, admin, verificacionLog}}>
       {children}
     </AuthContext.Provider> );
 }

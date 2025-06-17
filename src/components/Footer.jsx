@@ -73,7 +73,7 @@ function Footer() {
 
                     <Col xs={12} md={3} className="mb-4 mb-md-0 ">
                         <address>
-                            <p className="mb-1 text-center text-md-center">cerohuella@gmail.com</p>
+                            <p className="mb-1 text-center text-md-center text-white">cerohuella@gmail.com</p>
                             <p className="mb-1 text-center text-md-center">11-12345678</p>
                             <p className="mb-0 text-center text-md-center">CABA - Argentina</p>
                         </address>
@@ -81,10 +81,10 @@ function Footer() {
 
                     <Col xs={6} md={3} className="mb-4 mb-md-0">
                         <h5 className="text-center">Contenido</h5>
-                        <Nav className="flex-column align-items-center align-items-md-start">
-                            <Nav.Link href="#home" className="py-0">Home</Nav.Link>
-                            <Nav.Link href="#link" className="py-0">Link</Nav.Link>
-                            <NavDropdown title="Dropdown" id="nav-dropdown" className="py-0">
+                        <Nav className="flex-column align-items-center align-items-md-center">
+                            <Nav.Link href="#home" className="py-0 text-white">Home</Nav.Link>
+                            <Nav.Link href="#link" className="py-0 text-white">Link</Nav.Link>
+                            <NavDropdown title="Dropdown" id="nav-dropdown" className="py-0" style={{color:' #ffffff'}}>
                                 <NavDropdown.Item href="#action/3.1">Acción</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Otra acción</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">Algo más</NavDropdown.Item>
@@ -96,18 +96,18 @@ function Footer() {
 
                     <Col xs={6} md={3}>
                         <h5 className="text-center mb-3">Redes Sociales</h5>
-                        <Nav className="d-flex justify-content-center justify-content-md-start gap-3">
+                        <Nav className="d-flex justify-content-center justify-content-md-center gx-1">
                             <Nav.Link href="#insta">
-                                <i className="fa-brands fa-instagram fa-lg"></i>
+                                <i className="fa-brands fa-instagram fa-lg" style={{color:' #ffffff'}}></i>
                             </Nav.Link>
                             <Nav.Link href="#tiktok">
-                                <i className="fa-brands fa-tiktok fa-lg"></i>
+                                <i className="fa-brands fa-tiktok fa-lg" style={{color:' #ffffff'}}></i>
                             </Nav.Link>
                             <Nav.Link href="#facebook">
-                                <i className="fa-brands fa-facebook fa-lg"></i>
+                                <i className="fa-brands fa-facebook fa-lg" style={{color:' #ffffff'}}></i>
                             </Nav.Link>
                             <Nav.Link href="#twitter">
-                                <i className="fa-brands fa-x-twitter fa-lg"></i>
+                                <i className="fa-brands fa-x-twitter fa-lg" style={{color:' #ffffff'}}></i>
                             </Nav.Link>
                         </Nav>
                     </Col>

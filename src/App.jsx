@@ -42,7 +42,7 @@ function App() {
             <Route path="/productos" element={<ProductosContainer/>} />
             <Route path="/carrito" element={<Carrito/> }/>
             <Route path="/productos/:id" element={<ProductoDetalle/>} />
-            <Route path="/admin" element={<Admin/>}/>
+            {/*<Route path="/admin" element={<Admin/>}/>*/}
             <Route path="/admin/agregarProductos" element={<FormularioProducto/>}/>
             <Route path='/admin/editarProducto/:id' element={<FormularioEdicion/>}/>
             
