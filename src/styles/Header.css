@@ -17,6 +17,12 @@
     }
 }
 
+.badge-small {
+    font-size: 0.75rem;
+    padding: 0.35em 0.5em;
+    top: 20% !important;
+}
+
 .offcanvas-body,
 .offcanvas-header{
     background: #0d6efd;

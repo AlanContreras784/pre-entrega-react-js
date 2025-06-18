@@ -24,7 +24,8 @@ function ProductosContainer({}){
         return <p>{error}</p>;
     }else{
         return(
-            <div className="productos-conteiner">
+            <div className="productos-conteiner py-4 px-5">
+                <h1 className="fst-italic fs-3 w-100 m-auto" >NUESTROS PRODUCTOS</h1>
                 {productos.map((producto) => (
                     <CardProducto
                         key={producto.id}

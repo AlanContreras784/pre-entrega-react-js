@@ -28,7 +28,7 @@ export function CarritoProvider({ children }) {
         }
     };
     const vaciarCarrito = () => {
-        dispararSweetAlertBasico("Carrito Vacio", "El carrito fue vaciado con éxito del carrito", "error", "Cerrar");
+        dispararSweetAlertBasico("Carrito Vacio", "El carrito fue vaciado con éxito ", "error", "Cerrar");
         setProductosCarrito([]);
     };
     function borrarProductoCarrito(id){

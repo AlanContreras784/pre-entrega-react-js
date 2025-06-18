@@ -29,6 +29,13 @@
   .btn-carrusel:hover{
     color: var(--bs-primario);
   }
+
+  .logoRockVerde {
+  background-color: rgba(255, 255, 255, 0.726);
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+}
   
   .carousel-dark .carousel-indicators .active {
     opacity: 1;
@@ -41,7 +48,8 @@
 
   .divBlur {
   backdrop-filter: blur(15px);
-  width: 75%;
+  width: 85%;
+  border-radius: 25px;
 }
 
 @media screen and (min-width: 768px) {
@@ -49,4 +57,8 @@
   width: 65%;
  } 
   
+}
+
+.bottom-10{
+  bottom: 10%;
 }

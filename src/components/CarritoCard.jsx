@@ -9,7 +9,7 @@ function CarritoCard({producto, funcionDisparadora}){
     return(
         <div key={producto.id} className="carrito-card " >
             <h4 className="carrito-titulo fs-5">{producto.name}</h4>
-            <img className="carrito-image" src={producto.imagen}></img>
+            <img loading="lazy" className="carrito-image" src={producto.imagen}></img>
             <span className="m-1">Cantidad: {producto.cantidad}</span>
             <div>
                 <p >Precio unitario</p>

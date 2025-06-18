@@ -17,13 +17,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: #FEFAE0;
-    border: 1px solid #ddd;
+    background-color: white;
+    border: 1px solid #7cb744fa;
     border-radius: 8px;
     width: 75%;
     text-align: center;
     height: 100px;
     padding: 20px;
+    box-shadow: 0 2rem 4rem rgba(54, 41, 41, 0.438);
 }
 
 .carrito-titulo{

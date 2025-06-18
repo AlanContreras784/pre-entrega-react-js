@@ -65,12 +65,14 @@ function ProductoDetalle({}) {
   if (!productoSeleccionado) return null;
 
   return (
-    <div className="detalle-container">
-        <img className="detalle-imagen mx-auto" src={productoSeleccionado.imagen} alt={productoSeleccionado.name} />
+    <div className="div-detalle py-4">
+      <h1 className="fst-italic fs-3 mb-4">DETALLES DEL PRODUCTO</h1>
+      <div className="detalle-container">
+        <img className="detalle-imagen mx-auto mb-3" src={productoSeleccionado.imagen} alt={productoSeleccionado.name} />
       <div className="detalle-info">
-        <h2>{productoSeleccionado.name}</h2>
-        <small>{productoSeleccionado.description}</small>
-        <p>{productoSeleccionado.price} $</p>
+        <h1 className="fs-2 ">{productoSeleccionado.name}</h1>
+        <p>{productoSeleccionado.description}</p>
+        <h6>{productoSeleccionado.price} $</h6>
         {admin?
           <div className="d-flex  flex-column ">
             <Link to={"/admin/editarProducto/" + id}><Button className="mx-auto mb-2 " variant="outline-warning">Editar Producto</Button></Link>
@@ -80,9 +82,9 @@ function ProductoDetalle({}) {
           :
           <div >
             <div>
-                <button className="me-3 btn btn-light" onClick={restarContador}>-</button>
+                <button className="me-3 mb-2 btn btn-light" onClick={restarContador}>-</button>
                 <span>{cantidad}</span>
-                <button className="ms-3 btn btn-light" onClick={sumarContador}>+</button>
+                <button className="ms-3 mb-2 btn btn-light" onClick={sumarContador}>+</button>
             </div>
             <div className="d-flex  flex-column ">
               <Button className="mx-auto mb-2 " variant="outline-primary" onClick={funcionCarrito}>Agregar al carrito</Button>
@@ -91,8 +93,10 @@ function ProductoDetalle({}) {
             </div>  
           </div>
         } 
+        </div>
       </div>
     </div>
+    
   );
 }
 

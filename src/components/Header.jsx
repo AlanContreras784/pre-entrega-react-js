@@ -77,7 +77,7 @@ function Header() {
                                 <i class="fa-solid fa-magnifying-glass fa-lg" style={{color: '#ffffff'}}></i>
                                 </Button>
                             </InputGroup>
-                            <Nav.Link href="#" as={Link} to={'/carrito'} className='mx-2 nav-link position-relative'><i class= " fa-solid fa-cart-shopping fa-lg"><Badge pill bg="danger" className="position-absolute top-1 me-5 translate-middle">{productosCarrito.length>0 ? productosCarrito.length : ""}</Badge></i></Nav.Link>
+                            <Nav.Link href="#" as={Link} to={'/carrito'} className='mx-2 mt-2 nav-link position-relative'><i class= " fa-solid fa-cart-shopping fa-lg"><Badge pill bg="danger"  className="position-absolute  me-5 translate-middle badge-small">{productosCarrito.length>0 ? productosCarrito.length : ""}</Badge></i></Nav.Link>
                             <Nav.Link href="#" as={Link} to={'/login'} className='mx-o nav-link'><Button size="sm" variant="outline-light" className="border-0 " onClick={ !user ? handleNavigateLogin : handleLogout}>{ !user ? <i class="fa-solid fa-user fa-xl" style={{color:"#ffffff"}}></i> : <Button size="sm" variant="outline-light" className="border-boton px-1"> {'User: '+ obtenerUsername(user)}</Button>}</Button></Nav.Link>
                             {/*<i class="fa-solid fa-user" style={{color:"#ffffff"}}></i>*/}
                             </Nav>
